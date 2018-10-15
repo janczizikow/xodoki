@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 
+gem 'babosa'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'devise'

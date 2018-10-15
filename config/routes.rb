@@ -9,4 +9,9 @@ Rails.application.routes.draw do
                 format: :json
               }
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :hikes, only: %i[index show create update destroy]
+    end
+  end
 end

@@ -14,7 +14,7 @@ class Hike < ApplicationRecord
     title.to_slug.transliterate(:russian).normalize.to_s
   end
 
-  def slug_candidates
+  def slug_candidatess
     [
       :title,
       %i[title date],

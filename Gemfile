@@ -13,6 +13,13 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 
+gem 'cloudinary'
+gem 'carrierwave'
+gem 'devise'
+gem 'devise-jwt'
+gem 'pundit'
+gem 'friendly_id'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-byebug'

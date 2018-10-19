@@ -11,8 +11,10 @@ gem 'puma', '~> 3.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'rack-cors'
+# gem 'rack-cors'
+gem 'rails-i18n', '~> 5.1'
 
+gem 'activeadmin'
 gem 'babosa'
 gem 'cloudinary'
 gem 'carrierwave'
@@ -27,6 +29,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'foreman', '~> 0.82.0'
 end
 
 group :development do
@@ -37,7 +40,7 @@ group :development do
 end
 
 group :test do
-  gem 'guard-rspec'
+  # gem 'guard-rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

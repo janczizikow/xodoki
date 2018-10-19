@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class HikesController < ApplicationController
+    class HikesController < ApiController
       skip_before_action :authenticate_user!, only: %i[index show]
       before_action :set_hike, only: %i[show update destroy]
 

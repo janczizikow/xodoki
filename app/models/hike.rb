@@ -8,13 +8,16 @@ class Hike < ApplicationRecord
 
   belongs_to :user, inverse_of: :hikes
 
-  validates :title, :description, :date, :type, :user, presence: true
+  validates :title, :description,
+    :date,
+    # :type,
+    :user, presence: true
 
   def normalize_friendly_id(title)
     title.to_slug.transliterate(:russian).normalize.to_s
   end
 
-  def slug_candidatess
+  def slug_candidates
     [
       :title,
       %i[title date],

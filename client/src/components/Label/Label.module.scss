@@ -1,0 +1,12 @@
+@import '../../styles/shared.scss';
+
+.Label {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+  color: $dark;
+
+  &--invalid {
+    color: $error;
+  }
+}

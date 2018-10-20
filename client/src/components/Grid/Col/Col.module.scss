@@ -1,0 +1,48 @@
+@import '../../../styles/shared.scss';
+
+.Col {
+  padding: 0 $grid-gutters / 2;
+  flex: 1 0 100%;
+  max-width: 100%;
+  min-height: 1px;
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-offset($size, $columns: $grid-columns) {
+  margin-left: percentage($size / $columns);
+}
+
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@each $prefix, $breakpoint in $grid-breakpoints {
+  @for $i from 1 through $grid-columns {
+    // generate column & column offset classes
+    @include breakpoint($breakpoint) {
+      .Col--#{$prefix}-#{$i} {
+        @include make-col($i);
+      }
+
+      .Col--offset-#{$prefix}-#{$i - 1} {
+        @include make-offset($i - 1, $grid-columns);
+      }
+    }
+  }
+
+  // generate order classes
+  @for $j from 0 through $grid-columns {
+    @include breakpoint($breakpoint) {
+      .Col-#{$prefix}-order-#{$j} {
+        order: $j;
+      }
+    }
+  }
+
+  // TODO: generate hidden classes
+}

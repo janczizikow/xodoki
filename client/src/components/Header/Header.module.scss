@@ -1,0 +1,21 @@
+@import '../../styles/shared.scss';
+
+.Header {
+  position: fixed;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.10);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

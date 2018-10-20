@@ -1,0 +1,17 @@
+@import '../../../styles/shared.scss';
+
+.HeaderLinks {
+  display: none;
+
+  @include breakpoint(map-get($grid-breakpoints, md)) {
+    color: $grey;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $dark;
+    }
+  }
+}

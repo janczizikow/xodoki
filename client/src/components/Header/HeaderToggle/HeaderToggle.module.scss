@@ -1,0 +1,15 @@
+@import '../../../styles/shared.scss';
+
+.HeaderToggle {
+  padding: 0;
+  width: $header-height;
+  height: 100%;
+  color: $dark;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  @include breakpoint(map-get($grid-breakpoints, md)) {
+    display: none;
+  }
+}

@@ -19,6 +19,7 @@ gem 'babosa'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'devise'
+gem 'devise-i18n'
 gem 'devise-jwt'
 gem 'pundit'
 gem 'friendly_id'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'foreman', '~> 0.82.0'
+  gem 'letter_opener'
 end
 
 group :development do

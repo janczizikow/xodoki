@@ -7,7 +7,10 @@ Rails.application.routes.draw do
                 'sign_in': 'login',
                 'sign_out': 'logout'
               },
-              controllers: {sessions: "sessions"},
+              controllers: {
+                sessions: "sessions",
+                passwords: "passwords"
+              },
               defaults: {
                 format: :json
               }

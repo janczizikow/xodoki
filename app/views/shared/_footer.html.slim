@@ -1,0 +1,10 @@
+footer.footer
+  .container
+    .footer__inner
+      .footer__legal
+        = render "shared/logo"
+        .text-muted.mt-2 &copy; #{Time.zone.now.year} Ходки. Все права защищены.
+      .footer__links
+        nav
+          - Page.included_in_footer.each do |p|
+            = link_to p.title, "/#{p.slug}", class: 'footer__link'

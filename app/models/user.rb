@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :recoverable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
-
-  validates :username, presence: true
-
+  # Others devise modules:
+  # :registerable, :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :recoverable, :rememberable, :validatable
   mount_uploader :avatar, AvatarUploader
-
-  has_many :hikes, inverse_of: :user, dependent: :destroy
+  has_many :hikes, dependent: :destroy
 end

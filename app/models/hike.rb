@@ -2,26 +2,11 @@
 
 class Hike < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :name, use: :slugged
+  belongs_to :user
+  scope :my, ->(user) { where(user: user) }
 
-  serialize :type, Array
-
-  belongs_to :user, inverse_of: :hikes
-
-  validates :title, :description,
-    :date,
-    # :type,
-    :user, presence: true
-
-  def normalize_friendly_id(title)
-    title.to_slug.transliterate(:russian).normalize.to_s
-  end
-
-  def slug_candidates
-    [
-      :title,
-      %i[title date],
-      %i[title date type]
-    ]
+  def normalize_friendly_id(name)
+    name.to_slug.transliterate(:russian).normalize.to_s
   end
 end

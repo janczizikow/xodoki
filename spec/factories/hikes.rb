@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
   factory :hike do
     user { nil }
-    title { 'MyString' }
-    description { 'MyText' }
-    type { '' }
-    date { '2018-10-15' }
+    name { "MyString" }
+    description { "MyText" }
+    slug { "MyString" }
+    date { "2018-10-20" }
+    distance { 1 }
   end
 end

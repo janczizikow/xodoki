@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_18_082828) do
+ActiveRecord::Schema.define(version: 2018_10_21_000219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2018_10_18_082828) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -55,21 +65,26 @@ ActiveRecord::Schema.define(version: 2018_10_18_082828) do
 
   create_table "hikes", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "slug", null: false
-    t.string "title"
+    t.string "name"
     t.text "description"
+    t.string "slug"
     t.date "date"
-    t.string "type"
+    t.integer "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_hikes_on_slug", unique: true
     t.index ["user_id"], name: "index_hikes_on_user_id"
   end
 
-  create_table "jwt_blacklist", force: :cascade do |t|
-    t.string "jti", null: false
-    t.datetime "exp", null: false
-    t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "in_header"
+    t.boolean "in_footer"
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_082828) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"

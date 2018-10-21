@@ -1,0 +1,7 @@
+= link_to hike_path(hike), class: "card" do
+  .card-body
+    h5 class="card-title" = hike.name
+    p class="card-subtitle mb-2 text-muted"
+      = render "shared/hike_icons", hike: hike
+    p class="card-text"
+      = truncate(hike.description, length: 100)

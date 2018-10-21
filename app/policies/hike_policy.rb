@@ -7,23 +7,32 @@ class HikePolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-  end
-
   def show?
-    index?
+    true
   end
 
   def create?
     user.present?
   end
 
-  def update?
+  def new?
     create?
   end
 
-  def destroy?
+  def update?
+    record.user == user
+  end
+
+  def edit?
     update?
+  end
+
+  def destroy?
+    edit?
+  end
+
+  # account specific
+  def hikes?
+    user.present?
   end
 end

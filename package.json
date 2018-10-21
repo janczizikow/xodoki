@@ -1,16 +1,15 @@
 {
-  "name": "y",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:janczizikow/xodki.git",
-  "author": "Jan Czizikow <jan.czizikow@gmail.com>",
-  "license": "MIT",
-  "engines": {
-    "node": "6.3.1"
+  "name": "xodki",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "bootstrap": "^4.1.3",
+    "dotenv-webpack": "^1.5.7",
+    "gmaps": "^0.4.24",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.4"
   },
-  "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }

@@ -1,23 +1,25 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  root to: 'pages#home'
+  # Active admin
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users,
-              path: 'api/v1/auth',
-              path_names: {
-                'sign_in': 'login',
-                'sign_out': 'logout'
-              },
-              controllers: {
-                sessions: "sessions",
-                passwords: "passwords"
-              },
-              defaults: {
-                format: :json
-              }
 
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :hikes, only: %i[index show create update destroy]
-    end
+  # Devise
+  devise_for :users, path_names: { 'sign_in': 'login', 'sign_out': 'logout' }
+
+  # App custom routes
+  resources :hikes
+  resources :profiles, only: :update
+  resources :passwords, only: :update
+
+  get :account, to: 'account#account'
+
+  scope '/account' do
+    get :hikes, to: 'account#hikes', as: 'account_hikes'
+    get :password, to: 'account#password', as: 'account_password'
   end
+
+  get '/:id', to: 'pages#show'
 end

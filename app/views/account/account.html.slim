@@ -1,0 +1,18 @@
+= render "shared/account_layout"
+  .card
+    .card-body
+      h2 Profile
+      .d-flex
+        - if @user.avatar.present?
+          = image_tag @user.avatar.url(:default), class: "avatar img-fluid rounded-circle mr-3 mb-1"
+        - else
+          i class="fas fa-user-circle fa-lg"
+        = render "account/account/remove_avatar", user: @user
+      = render "account/account/upload_avatar", user: @user
+      br
+      = simple_form_for(@user, url: profile_path(@user), method: :patch, html: { method: :patch }) do |f|
+        = f.error_notification
+        = f.input :email, required: true
+        = f.input :username, required: true
+        = f.submit t('.save'), class: "btn btn-primary"
+

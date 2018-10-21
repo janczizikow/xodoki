@@ -1,0 +1,21 @@
+.notice {
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  z-index: 10;
+
+  &--error {
+    background-color: $danger;
+    color: $white;
+    text-align: center;
+  }
+
+  &--success {
+    background-color: $success;
+    color: $white;
+    text-align: center;
+  }
+}

@@ -1,0 +1,29 @@
+section.my-5
+  .container
+    .row
+      .col-lg-2
+        = link_to raw("<i class='fas fa-arrow-left'></i> Назад"), root_path
+      .col-lg-8
+        .card
+          .card-body
+            div.d-flex.align-items-end.flex-wrap-reverse.justify-content-between
+              .d-block
+                h2 = @hike.name
+
+                = render "shared/hike_icons", hike: @hike
+
+                - if @hike.user == current_user
+                  div.flex.mt-3
+                    = link_to raw('<i class="far fa-edit mr-1"></i> Редактировать'), edit_hike_path(@hike), class: 'small mr-3'
+                    = link_to raw('<i class="far fa-trash-alt mr-1"></i> Удалить'), @hike, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить этот поход?' }, class: 'small'
+              div.text-center
+                - if @hike.user.avatar.present?
+                  = image_tag @hike.user.avatar.url(:default), class: "avatar img-fluid rounded-circle mb-1"
+                - else
+                  i class="fas fa-lg fa-user-circle mb-1"
+                p = @hike.user.username
+            p.mt-3 = @hike.description
+            #map style="width: 100%; height: 450px;"
+= content_for(:after_js) do
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}"
+  = javascript_pack_tag "map"

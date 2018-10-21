@@ -1,0 +1,11 @@
+.Site {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__content {
+    margin-top: $header-height;
+    background: #f6f6f6;
+    flex: 1;
+  }
+}

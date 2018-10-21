@@ -1,0 +1,3 @@
+= render "shared/account_layout"
+  - @hikes.each do |hike|
+    = render "shared/card", hike: hike

@@ -1,0 +1,12 @@
+= render "shared/banner" do
+  h2.text-center.text-white Add a hike
+.my-5
+  .container
+    .page
+      = simple_form_for @hike do |f|
+        = f.input :name
+        = f.input :description
+        = f.input :date
+        = f.input :distance
+        = f.button :submit, class: "btn btn-primary btn-block"
+        = link_to "Отмена", root_path, class: "btn btn-secondary btn-block"

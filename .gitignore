@@ -1,6 +1,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore environment variables
+.env*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -11,14 +14,16 @@
 /storage/*
 !/storage/.keep
 
+/node_modules
+/yarn-error.log
+
+/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
-# Environment variables
-.env*
-
-# Ignore public, as it is built on deploy
-# Place files for /public in /client/public
-/public
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity

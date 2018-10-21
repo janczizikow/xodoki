@@ -1,0 +1,10 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $alternative;
+
+  &--sm {
+    min-height: 140px;
+  }
+}

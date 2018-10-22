@@ -1,4 +1,9 @@
 .avatar {
   width: 80px;
   height: 80px;
+
+  &--sm {
+    width: 48px;
+    height: 48px;
+  }
 }

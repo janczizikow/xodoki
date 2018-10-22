@@ -3,8 +3,12 @@
 class Hike < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
-  belongs_to :user
+
   scope :my, ->(user) { where(user: user) }
+
+  belongs_to :user
+
+  validates :name, :description, :date, :distance, presence: true
 
   def normalize_friendly_id(name)
     name.to_slug.transliterate(:russian).normalize.to_s

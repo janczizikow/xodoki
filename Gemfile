@@ -49,4 +49,7 @@ group :development do
   gem 'letter_opener'
 end
 
+group :test do
+  gem 'guard'
+end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

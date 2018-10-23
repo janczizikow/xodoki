@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { 'sign_in': 'login', 'sign_out': 'logout' }
 
   # App custom routes
-  resources :hikes
+  resources :hikes, only: %i[show new create edit update destroy]
   resources :profiles, only: :update
   resources :passwords, only: :update
 

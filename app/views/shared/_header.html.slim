@@ -22,7 +22,7 @@ header.header.navbar.navbar-expand-md.navbar-light.fixed-top
             div.dropdown-divider
             = link_to "Выйти", destroy_user_session_path, method: :delete, class: "dropdown-item"
         li.nav-item
-          = link_to "New Hike", new_hike_path, class: "nav-link", class: "btn btn-primary btn-block btn-add my-2 my-md-0"
+          = link_to "Создать поход", new_hike_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"
       - else
         li.nav-item
-          = link_to "Войти", new_user_session_path, class: "nav-link", class: "btn btn-primary btn-block btn-add my-2 my-md-0"
+          = link_to "Войти", new_user_session_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"

@@ -54,6 +54,6 @@ class HikesController < ApplicationController
   end
 
   def hike_params
-    params.require(:hike).permit(:name, :description, :date, :distance)
+    params.require(:hike).permit(:name, :description, :date, :distance, :kml, :kml_cache)
   end
 end

@@ -33,11 +33,14 @@ gem 'simple_form'
 gem 'slim-rails'
 
 group :development, :test do
+  gem 'capybara'
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'guard-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.7'
-  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -52,4 +55,5 @@ end
 group :test do
   gem 'guard'
 end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

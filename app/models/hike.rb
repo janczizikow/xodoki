@@ -3,6 +3,7 @@
 class Hike < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  mount_uploader :kml, KmlUploader
 
   scope :my, ->(user) { where(user: user) }
 

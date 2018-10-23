@@ -1,4 +1,3 @@
-// import GMaps from 'gmaps/gmaps.js';
 {
   const mapElement = document.getElementById('map');
   if (mapElement) {
@@ -7,10 +6,12 @@
       zoom: 8,
       mapTypeId: 'terrain'
     });
-    // const src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
-    // const kmlLayer = new google.maps.KmlLayer(src, {
-    //   map
-    // });
-    // kmlLayer.setMap(map);
+    const src = mapElement.dataset.kml;
+    if (src) {
+      const kmlLayer = new google.maps.KmlLayer(src, {
+        map
+      });
+      kmlLayer.setMap(map);
+    }
   }
 }

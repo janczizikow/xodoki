@@ -8,5 +8,7 @@
         = f.input :description
         = f.input :date
         = f.input :distance
+        = f.input :kml
+        = f.input :kml_cache, as: :hidden
         = f.button :submit, class: "btn btn-primary btn-block"
         = link_to "Отмена", @hike, class: "btn btn-secondary btn-block"

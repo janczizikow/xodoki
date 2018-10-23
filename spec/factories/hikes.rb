@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :hike do
     user { nil }
-    name { "MyString" }
-    description { "MyText" }
-    slug { "MyString" }
-    date { "2018-10-20" }
-    distance { 1 }
+    name { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraph }
+    date { Faker::Date }
+    distance { Faker::Number.between(1, 10) }
   end
 end

@@ -11,7 +11,7 @@ class PasswordsController < ApplicationController
       redirect_to account_password_path
     else
       flash[:alert] = @user.errors.full_messages.join(', ')
-      render 'pages/password'
+      render 'account/password'
     end
   end
 

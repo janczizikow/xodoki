@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
       redirect_to account_path
     else
       flash[:alert] = @user.errors.full_messages
-      render 'pages/account'
+      render 'account/account'
     end
   end
 

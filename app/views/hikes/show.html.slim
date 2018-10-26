@@ -1,33 +1,25 @@
-section.my-5
+section class="my-5"
   .container
     .row
       .col-lg-2
-        = link_to raw("<i class='fas fa-arrow-left'></i> Назад"), root_path
+        = link_to raw("<i class='fas fa-arrow-left mb-3'></i> Назад"), root_path
       .col-lg-8
-        .card
+        div class="card mb-4 shadow-sm"
           .card-body
-            div.d-flex.align-items-end.flex-wrap-reverse.justify-content-between
-              .d-block
-                h2 = @hike.name
-
-                = render "shared/hike_icons", hike: @hike
-                - if @hike.kml.url.present?
-                  div.mt-3
-                    = link_to @hike.kml.url do
-                      i class="fas fa-download text-primary"
-                      span.mx-2 Скачать KML
-                - if @hike.user == current_user
-                  div.flex.mt-3
-                    = link_to raw('<i class="far fa-edit mr-1"></i> Редактировать'), edit_hike_path(@hike), class: 'small mr-3'
-                    = link_to raw('<i class="far fa-trash-alt mr-1"></i> Удалить'), @hike, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить этот поход?' }, class: 'small'
-              div.text-center
-                - if @hike.user.avatar.present?
-                  = image_tag @hike.user.avatar.url(:default), class: "avatar--sm img-fluid rounded-circle mb-1"
-                - else
-                  i class="fas fa-lg fa-user-circle mb-1"
-                p.mb-0 = @hike.user.username
+            div class="d-block"
+              div.d-flex.align-items-center.flex-wrap-wrap.justify-content-between
+                div.d-flex.align-items-center
+                  = render "shared/hike_avatar"
+                  h2 = @hike.name
+                = render "shared/favorite", hike: @hike, favorite: @favorite
+              = render "shared/hike_icons", hike: @hike
+                = render "shared/download_kml_link", hike: @hike
+              = render "shared/hike_meta", hike: @hike
+              = render "shared/edit_icons"
             p.mt-3 = @hike.description
-            #map style="width: 100%; height: 450px;" data-kml="#{@hike.kml.url}"
-= content_for(:after_js) do
-  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}"
-  = javascript_pack_tag "map"
+            - if @hike.kml.present?
+              #map style="width: 100%; height: 450px;" data-kml="#{@hike.kml.url}"
+- if @hike.kml.present?
+  = content_for(:after_js) do
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}"
+    = javascript_pack_tag "map"

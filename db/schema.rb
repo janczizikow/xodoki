@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_123511) do
+ActiveRecord::Schema.define(version: 2018_10_26_111429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 2018_10_23_123511) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -49,6 +55,21 @@ ActiveRecord::Schema.define(version: 2018_10_23_123511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "directions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hike_id"], name: "index_favorites_on_hike_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -73,6 +94,10 @@ ActiveRecord::Schema.define(version: 2018_10_23_123511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "kml"
+    t.bigint "category_id"
+    t.bigint "direction_id"
+    t.index ["category_id"], name: "index_hikes_on_category_id"
+    t.index ["direction_id"], name: "index_hikes_on_direction_id"
     t.index ["slug"], name: "index_hikes_on_slug", unique: true
     t.index ["user_id"], name: "index_hikes_on_user_id"
   end
@@ -102,5 +127,9 @@ ActiveRecord::Schema.define(version: 2018_10_23_123511) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "hikes"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "hikes", "categories"
+  add_foreign_key "hikes", "directions"
   add_foreign_key "hikes", "users"
 end

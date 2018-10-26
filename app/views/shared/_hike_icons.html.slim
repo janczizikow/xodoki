@@ -1,4 +1,8 @@
-i class="far fa-calendar text-primary"
-span.mx-2 = hike.date
-i class="fas fa-hiking text-primary"
-span.mx-2 = "#{hike.distance} км"
+.d-flex.flex-wrap.align-items-center
+  div
+    i class="far fa-calendar text-primary"
+    span.mx-2 = hike.date
+  div
+    i class="fas fa-hiking text-primary"
+    span.mx-2 = "#{hike.distance} км"
+  == yield

@@ -1,7 +1,8 @@
+h4.mt-2 Avatar
 = simple_form_for(user, url: profile_path(user), html: { multipart: true }) do |f|
   / .d-none
     / = f.input :remove_avatar, as: :boolean, input_html: { checked: true }
-  = f.input :avatar
+  = f.input :avatar, label: false
   = f.input :avatar_cache, as: :hidden
   = f.submit 'Upload', class: "btn btn btn-primary"
 

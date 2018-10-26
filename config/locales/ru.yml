@@ -1,4 +1,34 @@
 ru:
+  activerecord:
+    models:
+      hike:
+        one: Поход
+        other: Походы
+    attributes:
+      hike:
+        name: Название похода
+        description: Описание похода
+        date: Дата похода
+        distance: Расстояние (км)
+  simple_form:
+    error_notification:
+      default_messge: 'Пожалуйста, просмотрите приведенные ниже проблемы:'
   shared:
+    header:
+      Login: Войти
+      Logout: Выйти
+      Hikes: Походы
+      Account: Аккаунт
+      Password: Пароль
+      My hikes: Мои походы
+      Favorites: Закладки
+      New hike: Создать поход
+    footer:
+      All rights reserved: Все права защищены
     account_layout:
       save: 'Сохранить'
+    download_kml_link:
+      Download: 'Скачать'
+  favorites:
+    index:
+      Favorites: Закладки

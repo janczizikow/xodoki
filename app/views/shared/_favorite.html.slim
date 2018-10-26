@@ -1,0 +1,12 @@
+- if user_signed_in?
+  - if in_favorites(hike)
+    = simple_form_for [hike, in_favorites(hike)], method: :delete do |f|
+        = f.input :favorite_id, as: :hidden, input_html: { value: hike.id }
+        = f.input :hike_id, as: :hidden, input_html: { value: hike.id }
+        = button_tag class: "btn-icon" do
+          = raw('<i class="fas fa-heart text-danger"></i>')
+  - else
+    = simple_form_for [hike, favorite] do |f|
+      = f.input :hike_id, as: :hidden, input_html: { value: hike.id }
+      = button_tag class: "btn-icon" do
+        = raw('<i class="fas fa-heart text-muted"></i>')

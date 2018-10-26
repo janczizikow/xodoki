@@ -1,0 +1,5 @@
+div.text-center.mr-3
+  - if @hike.user.avatar.present?
+    = image_tag @hike.user.avatar.url(:default), class: "img-fluid rounded-circle mb-1", size: "48x48"
+  - else
+    i class="fas fa-lg fa-user-circle mb-1"

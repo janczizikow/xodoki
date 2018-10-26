@@ -1,0 +1,11 @@
+section.my-5
+  .container
+    h3 = t('.Favorites')
+    - if @favorites.count > 0
+      .row
+        - @favorites.each do |f|
+          div class="col-md-6 col-lg-4"
+            = render "shared/card", hike: f.hike
+    - else
+      - str = "Nothing saved yet<br/>When you find something you like, click the heart icon to save it."
+      p #{{str}}

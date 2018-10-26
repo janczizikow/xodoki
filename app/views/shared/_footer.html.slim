@@ -3,7 +3,11 @@ footer.footer
     .footer__inner
       .footer__legal
         = render "shared/logo"
-        .text-muted.mt-2 &copy; #{Time.zone.now.year} Ходки. Все права защищены.
+        .text-muted.mt-2
+          |
+            &copy;
+            &nbsp;
+          = "#{Time.zone.now.year} Ходоки. #{t('.All rights reserved')}."
       .footer__links
         nav
           - Page.included_in_footer.each do |p|

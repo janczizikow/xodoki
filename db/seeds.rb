@@ -1,8 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+p 'Generating seeds...'
+
+categories = %w[Лыжный Пеший Лыжно-пеший]
+directions = [
+  'Белорусское',
+  'Казанское',
+  'Киевское',
+  'Курское Южное',
+  'Курское Горьковское',
+  'Ленинградское',
+  'Павелецкое',
+  'Рижское',
+  'Савеловское',
+  'Ярославское'
+]
+
+if Category.count < 1
+  p 'Generating categories...'
+  categories.each { |category| Category.create!(name: category) }
+  p 'Categories generated!'
+end
+
+if Direction.count < 1
+  p 'Generating directions...'
+  directions.each { |direction| Direction.create!(name: direction) }
+  p 'Directions generated!'
+end
+
+User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && User.count < 1
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && AdminUser.count < 1
+
+p 'All done! 🎉'

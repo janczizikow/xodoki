@@ -3,6 +3,7 @@ ru:
     models:
       hike:
         one: Поход
+        many: Походы
         other: Походы
     attributes:
       hike:
@@ -23,12 +24,19 @@ ru:
       My hikes: Мои походы
       Favorites: Закладки
       New hike: Создать поход
+    sort:
+      All: Бсе
+      Upcoming: Предстоящие
+      Past: Прошлые
     footer:
       All rights reserved: Все права защищены
     account_layout:
-      save: 'Сохранить'
+      save: Сохранить
     download_kml_link:
-      Download: 'Скачать'
+      Download: Скачать
+    hike_photos:
+      Photos: Фотки
+      Add: Добавить
   favorites:
     index:
       Favorites: Закладки

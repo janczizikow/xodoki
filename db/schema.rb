@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_26_111429) do
+ActiveRecord::Schema.define(version: 2018_10_26_220108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,17 @@ ActiveRecord::Schema.define(version: 2018_10_26_111429) do
     t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hike_id"
+    t.string "text"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hike_id"], name: "index_photos_on_hike_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -132,4 +143,6 @@ ActiveRecord::Schema.define(version: 2018_10_26_111429) do
   add_foreign_key "hikes", "categories"
   add_foreign_key "hikes", "directions"
   add_foreign_key "hikes", "users"
+  add_foreign_key "photos", "hikes"
+  add_foreign_key "photos", "users"
 end

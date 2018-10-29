@@ -1,0 +1,11 @@
+#hikes {
+  width: 100%;
+  height: $header-height;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  font-weight: bold;
+  background-color: transparent;
+  border-color: #dee2e6 #dee2e6 #f8f9fa;
+}

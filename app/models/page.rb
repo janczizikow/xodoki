@@ -8,6 +8,7 @@ class Page < ApplicationRecord
   scope :included_in_footer, -> { where(in_footer: true) }
 
   validates :title, :content, presence: true
+  validates :title, uniqueness: {case_sensitive: false}
 
   def normalize_friendly_id(title)
     title.to_slug.transliterate(:russian).normalize.to_s

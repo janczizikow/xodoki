@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # App custom routes
   resources :hikes, only: %i[show new create edit update destroy] do
     resources :favorites, only: %i[create destroy]
+    resources :photos, only: %i[create destroy]
   end
 
   resources :profiles, only: :update

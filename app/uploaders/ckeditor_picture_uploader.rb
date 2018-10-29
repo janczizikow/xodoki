@@ -1,14 +1,15 @@
 # encoding: utf-8
+
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
-  include Ckeditor::Backend::CarrierWave
+  include Cloudinary::CarrierWave
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
   # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -28,7 +29,7 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  process :extract_dimensions
+  # process :extract_dimensions
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -39,8 +40,6 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [800, 800]
   end
 
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
   def extension_white_list
     Ckeditor.image_file_types
   end

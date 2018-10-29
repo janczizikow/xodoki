@@ -5,8 +5,11 @@ class User < ApplicationRecord
   # :registerable, :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
   mount_uploader :avatar, AvatarUploader
-  has_many :hikes, dependent: :destroy
+
   after_create :send_welcome_email
+
+  has_many :hikes, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   private
 

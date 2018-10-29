@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe "favorites/index.html.slim", type: :view do
+RSpec.describe Photo, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

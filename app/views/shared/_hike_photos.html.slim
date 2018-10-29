@@ -1,0 +1,13 @@
+.card
+  ul class="list-group list-group-flush"
+    li class="list-group-item"
+      h5 class="m-0" = t('.Photos')
+    - hike.photos.each do |photo|
+      li class="list-group-item small"
+        .d-flex.align-items-center.justify-content-between
+          = link_to raw("#{photo.text} <i class='fas fa-external-link-alt'></i>"), photo.link, target: :_blank
+          - if photo.user == current_user
+            div
+              = link_to raw('<i class="far fa-trash-alt text-danger"></i>'), hike_photo_path(hike, photo), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить ету фото ссылку?' }
+    - if user_signed_in?
+      button class="btn btn-primary" data-toggle="modal" data-target="#photoModal" = t('.Add')

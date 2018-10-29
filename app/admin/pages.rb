@@ -20,7 +20,7 @@ ActiveAdmin.register Page do
     f.inputs 'Создать Страницу' do
       f.input :title
       div do
-        f.input :content, as: :ckeditor, input_html: { ckeditor: { language: 'ru', toolbar: 'Full' } }
+        f.input :content, as: :ckeditor, input_html: {ckeditor: {language: 'ru', toolbar: 'Full'}}
       end
       f.input :in_header
       f.input :in_footer

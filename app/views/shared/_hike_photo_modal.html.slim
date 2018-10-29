@@ -1,0 +1,14 @@
+div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModal" aria-hidden="true"
+  div class="modal-dialog" role="document"
+    div class="modal-content"
+      div class="modal-header"
+        h5 class="modal-title" id="exampleModalLabel" = t('.Add Photos Link')
+        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          span aria-hidden="true" &times;
+      = simple_form_for [@hike, @photo] do |f|
+        div class="modal-body"
+          = f.input :text
+          = f.input :link
+        div class="modal-footer"
+          button type="button" class="btn btn-secondary" data-dismiss="modal" = t('.Close')
+          = f.submit class: "btn btn-primary"

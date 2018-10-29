@@ -3,7 +3,7 @@ section class="my-5"
     .row
       .col-lg-2
         = link_to raw("<i class='fas fa-arrow-left mb-3'></i> Назад"), root_path
-      .col-lg-8
+      .col-lg-7
         div class="card mb-4 shadow-sm"
           .card-body
             div class="d-block"
@@ -19,6 +19,10 @@ section class="my-5"
             p.mt-3 = @hike.description
             - if @hike.kml.present?
               #map style="width: 100%; height: 450px;" data-kml="#{@hike.kml.url}"
+      .col-lg-3
+        = render "shared/hike_photos", hike: @hike
+
+= render "shared/hike_photo_modal"
 - if @hike.kml.present?
   = content_for(:after_js) do
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}"

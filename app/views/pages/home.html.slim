@@ -7,8 +7,10 @@
     = "Но если ты скажешь мне снова,"
     br
     = "Я все это снова пройду..."
+#hikes
 .section.my-5
   = render "shared/sort"
+  / = render "shared/filters"
   .container.mt-4
     - if @hikes.length > 0
       .row
@@ -18,3 +20,6 @@
     - else
       h3 Ничего не найдено
       p Поиск не дал результатов. Попробуйте поискать по другим ключевым словам.
+
+= content_for(:after_js) do
+  = javascript_pack_tag "filters"

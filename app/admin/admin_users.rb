@@ -6,8 +6,8 @@ ActiveAdmin.register AdminUser do
     # def authorize_index
     #   policy_scope(User)
     # end
-
     before_action :authorize_show_edit_destroy, only: %i[show edit destroy]
+
     def authorize_show_edit_destroy
       authorize resource
     end

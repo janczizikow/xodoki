@@ -1,11 +1,11 @@
 .container.my-3
   ul class="nav nav-tabs"
     li class="nav-item"
-      = link_to 'All', root_path(search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].blank? && params[:past].blank?)
+      = link_to t('.All'), root_path(search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].blank? && params[:past].blank?)
     li class="nav-item"
-      = link_to 'Upcoming', root_path(upcoming: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].present?)
+      = link_to t('.Upcoming'), root_path(upcoming: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].present?)
     li class="nav-item"
-      = link_to 'Past', root_path(past: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:past].present?)
+      = link_to t('.Past'), root_path(past: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:past].present?)
     li class="nav-item ml-auto"
       div class="dropdown"
       button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Сортировать

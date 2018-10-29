@@ -1,0 +1,6 @@
+.mt-4.text-center
+  - if user.avatar.present?
+    = image_tag user.avatar.url(:default), class: "mb-2 rounded-circle", size: "80x80"
+  - else
+    i class="fas fa-user-circle fa-5x text-muted"
+  p = user.username

@@ -11,9 +11,6 @@ html lang="ru"
     = render 'application/favicon'
 
     = stylesheet_link_tag 'application', media: 'all'
-
-    / Polyfills must load sync, since they need to be active before other scripts run
-    script src="https://cdn.polyfill.io/v2/polyfill.min.js"
   body class="Site"
     = render "shared/header"
 

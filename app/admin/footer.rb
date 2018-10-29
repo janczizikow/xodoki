@@ -8,7 +8,7 @@ module ActiveAdmin
         @namespace = namespace
 
         div do
-          span (
+          span(
             "#{Time.zone.now.year} Developed by " + link_to('Jan Czizikow', 'https://www.janczizikow.com')
           ).html_safe
         end

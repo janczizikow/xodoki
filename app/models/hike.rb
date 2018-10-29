@@ -3,6 +3,7 @@
 class Hike < ApplicationRecord
   include PgSearch
   extend FriendlyId
+
   friendly_id :name, use: :slugged
   mount_uploader :kml, KmlUploader
 
@@ -11,7 +12,6 @@ class Hike < ApplicationRecord
   scope :direction, ->(params) { where(direction_id: params[:direction_id]) }
   scope :upcoming, -> { where('date >= ?', Time.zone.now) }
   scope :past, -> { where('date < ?', Time.zone.now) }
-
   pg_search_scope :search,
                   against: %i[name description],
                   using: {
@@ -21,6 +21,7 @@ class Hike < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :direction
+  has_many :photos, dependent: :destroy
 
   validates :name, :description, :date, :distance, presence: true
 

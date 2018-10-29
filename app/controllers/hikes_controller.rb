@@ -6,6 +6,7 @@ class HikesController < ApplicationController
 
   def show
     @favorite = Favorite.new
+    @photo = Photo.new
   end
 
   def new

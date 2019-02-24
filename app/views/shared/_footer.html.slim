@@ -2,12 +2,12 @@ footer.footer
   .container
     .footer__inner
       .footer__legal
-        = render "shared/logo"
+        = image_tag "/assets/logo.png", class: "img-fluid", width: '64px'
         .text-muted.mt-2
           |
             &copy;
             &nbsp;
-          = "#{Time.zone.now.year} Ходоки. #{t('.All rights reserved')}."
+          = "#{Time.zone.now.year} Группа Ганелина. #{t('.All rights reserved')}."
       .footer__links
         nav
           - Page.included_in_footer.each do |p|

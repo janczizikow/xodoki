@@ -16,7 +16,7 @@ section class="my-5"
                 = render "shared/download_kml_link", hike: @hike
               = render "shared/hike_meta", hike: @hike
               = render "shared/edit_icons"
-            p.mt-3 = @hike.description
+            p.mt-3.text-spacing = @hike.description
             - if @hike.kml.present?
               #map style="width: 100%; height: 450px;" data-kml="#{@hike.kml.url}"
       .col-lg-3

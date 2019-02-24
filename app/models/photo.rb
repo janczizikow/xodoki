@@ -6,7 +6,7 @@ class Photo < ApplicationRecord
 
   validates :text, :link, presence: true
   validates :link, format: {
-    with: %r{(photo|plus).google.com\/photos\/.*}i,
-    message: 'Разрешены только ссылки из Google Фото.'
+    with: %r{\A(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?\z}i,
+    message: 'Неправильная ссылка.'
   }
 end

@@ -9,8 +9,8 @@ module ActiveAdmin
 
         div do
           span(
-            "#{Time.zone.now.year} Developed by " + link_to('Jan Czizikow', 'https://www.janczizikow.com')
-          ).html_safe
+            "#{Time.zone.now.year} Developed by " + 'Jan Czizikow'
+          )
         end
       end
     end

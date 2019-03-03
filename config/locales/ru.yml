@@ -13,7 +13,7 @@ ru:
         distance: Расстояние (км)
   simple_form:
     error_notification:
-      default_messge: 'Пожалуйста, просмотрите приведенные ниже проблемы:'
+      default_messge: "Пожалуйста, просмотрите приведенные ниже проблемы:"
   shared:
     header:
       Login: Войти
@@ -25,7 +25,7 @@ ru:
       Favorites: Закладки
       New hike: Создать поход
     sort:
-      All: Бсе
+      All: Все
       Upcoming: Предстоящие
       Past: Прошлые
     footer:
@@ -35,7 +35,7 @@ ru:
     download_kml_link:
       Download: Скачать
     hike_photos:
-      Photos: Фотки
+      Photos: Медиа
       Add: Добавить
   favorites:
     index:

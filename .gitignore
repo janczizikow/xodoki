@@ -4,6 +4,10 @@
 # Ignore environment variables
 .env*
 
+# Ignore Mac and Linux file system files
+*.swp
+.DS_Store
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

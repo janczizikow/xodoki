@@ -30,14 +30,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
+
+gem "aws-sdk-s3", require: false
+gem 'administrate'
 gem 'autoprefixer-rails'
-gem 'activeadmin'
 gem 'babosa'
-gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'css-class-string'
-gem 'ckeditor'
 gem 'mini_magick'
 gem 'devise'
 gem 'friendly_id', '~> 5.2.0'

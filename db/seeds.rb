@@ -27,6 +27,5 @@ if Direction.count < 1
 end
 
 User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && User.count < 1
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && AdminUser.count < 1
 
 p 'All done! 🎉'

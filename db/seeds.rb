@@ -28,4 +28,21 @@ end
 
 User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && User.count < 1
 
+if Hike.count < 1
+  p 'Generating hikes...'
+  50.times do |i|
+    Hike.create!(
+      name: "Hike #{i + 1}",
+      description: "description",
+      distance: rand(1..10),
+      # random date in last 3 weeks
+      date: (DateTime.now - (rand * 21)).to_date,
+      user: User.first,
+      category: Category.all.sample,
+      direction: Direction.all.sample,
+    )
+  end
+  p 'Hikes generated!'
+end
+
 p 'All done! 🎉'

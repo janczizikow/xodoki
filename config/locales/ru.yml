@@ -42,4 +42,4 @@ ru:
       Favorites: Закладки
   errors:
     messages:
-      max_size_error: Объём файле не может превышать %{max_size}
+      max_size_error: Объём файла не может превышать %{max_size}

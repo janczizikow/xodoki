@@ -5,14 +5,14 @@ class PagesController < ApplicationController
   before_action :set_page, only: :show
 
   def home
-    @hikes = Hike.where(nil).order(sort)
-    @hikes = Hike.upcoming if params[:upcoming].present?
-    @hikes = Hike.past if params[:pasr].present?
+    @pagy, @hikes = pagy Hike.where(nil).order(sort)
+    @pagy, @hikes = pagy Hike.upcoming if params[:upcoming].present?
+    @pagy, @hikes = pagy Hike.past if params[:pasr].present?
     # filter_params(params).each do |key, value|
     #   value["#{key}_id".to_sym].shift
     #   @hikes = @hikes.public_send(key, value) if value["#{key}_id".to_sym].all?(&:present?)
     # end
-    @hikes = @hikes.search(params[:search]) if params[:search].present?
+    @pagy, @hikes = pagy @hikes.search(params[:search]) if params[:search].present?
   end
 
   def show; end

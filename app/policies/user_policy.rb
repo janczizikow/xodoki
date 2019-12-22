@@ -12,21 +12,19 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    # TODO: ONLY ADMIN
-    user.present?
+    user&.admin?
   end
 
   def new?
-    # TODO: ONLY ADMIN
-    true
+    create?
   end
 
   def update?
-    record == user
+    user&.admin? || record == user
   end
 
   def edit?
-    record == user
+    update?
   end
 
   def destroy?

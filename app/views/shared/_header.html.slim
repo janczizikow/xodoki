@@ -33,6 +33,8 @@ header.header.navbar.navbar-expand-md.navbar-light.fixed-top
             = link_to t('.Account'), account_path, class: "dropdown-item"
             = link_to t('.Password'), account_password_path, class: "dropdown-item"
             = link_to t('.My hikes'), account_hikes_path, class: "dropdown-item"
+            - if current_user.admin?
+              = link_to t('.Admin'), admin_root_path, class: "dropdown-item"
             div.dropdown-divider
             = link_to t('.Logout'), destroy_user_session_path, method: :delete, class: "dropdown-item"
         li.nav-item

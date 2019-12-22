@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Hike < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
   extend FriendlyId
 
   friendly_id :name, use: :slugged

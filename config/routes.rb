@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  namespace :admin do
+      resources :users
+      resources :categories
+      # resources :favorites
+      # resources :photos
+      resources :pages
+      resources :hikes
+      resources :directions
+
+      root to: "users#index"
+    end
   # Root
   root to: 'pages#home'
-
-  # Active admin
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
   # Devise
   devise_for :users, path_names: { 'sign_in': 'login', 'sign_out': 'logout' }

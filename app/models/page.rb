@@ -3,6 +3,7 @@
 class Page < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
+  has_rich_text :content
 
   scope :included_in_header, -> { where(in_header: true) }
   scope :included_in_footer, -> { where(in_footer: true) }

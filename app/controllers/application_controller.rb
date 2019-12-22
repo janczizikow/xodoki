@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!, unless: %i[devise_controller? active_admin_controller?]
+  before_action :authenticate_user!, unless: %i[devise_controller?]
   after_action :verify_authorized, except: %i[index dashboard], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
@@ -16,12 +16,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def active_admin_controller?
-    is_a?(ActiveAdmin::BaseController)
-  end
-
   def skip_pundit?
-    devise_controller? || active_admin_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
   def user_not_authorized

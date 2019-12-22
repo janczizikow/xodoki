@@ -40,3 +40,6 @@ ru:
   favorites:
     index:
       Favorites: Закладки
+  errors:
+    messages:
+      max_size_error: Объём файле не может превышать %{max_size}

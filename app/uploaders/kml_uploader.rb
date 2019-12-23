@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class KmlUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
-  # storage :fog
+  storage :fog
 
   def extension_whitelist
     %w[kml kmz]

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class AvatarUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  include CarrierWave::MiniMagick
+  storage :fog
 
-  process eager: true # Force version generation at upload time.
   version :default do
-    cloudinary_transformation width: 160, height: 160, crop: :thumb, gravity: :face
+    process resize_to_fill: [160, 160]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

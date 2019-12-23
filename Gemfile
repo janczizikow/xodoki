@@ -32,10 +32,12 @@ gem 'devise-i18n'
 
 
 gem "aws-sdk-s3", require: false
+gem "fog-aws"
 gem 'administrate'
 gem 'autoprefixer-rails'
 gem 'babosa'
 gem 'carrierwave', '~> 2.0'
+gem 'carrierwave-i18n'
 gem 'cloudinary'
 gem 'css-class-string'
 gem 'mini_magick'

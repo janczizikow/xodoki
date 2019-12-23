@@ -3,6 +3,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "trix/dist/trix";
 
 @import "base/base";
 @import "base/helpers";
@@ -12,6 +13,7 @@
 @import "components/card";
 @import "components/notice";
 @import "components/banner";
+@import "components/trix";
 @import "components/footer";
 
 @import "pages/home";

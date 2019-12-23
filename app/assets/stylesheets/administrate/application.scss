@@ -67,4 +67,17 @@
   }
 }
 
+// reset ul and ol styles inside trix (collides with reset.css)
+trix-editor ul {
+  list-style: inherit;
+}
+
+trix-editor ol {
+  list-style-type: decimal;
+}
+
+trix-editor {
+  min-height: 15rem;
+}
+
 @import "flatpickr/dist/flatpickr.min";

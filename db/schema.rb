@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_184454) do
+ActiveRecord::Schema.define(version: 2019_12_23_010658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_184454) do
     t.string "kml"
     t.bigint "category_id"
     t.bigint "direction_id"
+    t.string "old_kml_url"
     t.index ["category_id"], name: "index_hikes_on_category_id"
     t.index ["direction_id"], name: "index_hikes_on_direction_id"
     t.index ["slug"], name: "index_hikes_on_slug", unique: true

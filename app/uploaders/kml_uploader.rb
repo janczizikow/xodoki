@@ -2,6 +2,7 @@
 
 class KmlUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
+  # storage :fog
 
   def extension_whitelist
     %w[kml kmz]

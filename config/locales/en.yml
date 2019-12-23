@@ -30,4 +30,32 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  shared:
+    header:
+      search: Search...
+      login: Login
+      logout: Logout
+      hikes: Hikes
+      account: Account
+      password: Password
+      my_hikes: My hikes
+      favorites: Favorites
+      new_hike: New hike
+      admin: Admin
+    sort:
+      all: all
+      upcoming: Upcoming
+      past: Past
+    footer:
+      all_rights_reserved: All rights reserved
+    account_layout:
+      save: Save
+    download_kml_link:
+      download: Download
+    hike_photos:
+      photos: Photos
+      add: Add
+  favorites:
+    index:
+      favorites: Favorites
+      nothing_saved_yet: "Nothing saved yet<br/>When you find something you like, click the heart icon to save it."

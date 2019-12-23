@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
     authorize @photo
 
     if @photo.save
-      flash[:notice] = 'Photo Link added'
+      flash[:notice] = t('.photo_link_created')
     else
       flash[:alert] = @photo.errors.full_messages.join(', ')
     end
@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
 
   def destroy
     if @photo.destroy
-      flash[:notice] = 'Photo Link updated'
+      flash[:notice] = t('.photo_link_removed')
     else
       flash[:alert] = @photo.errors.full_messages.join(', ')
     end

@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   def update
     if @user.update(user_params)
       bypass_sign_in(@user)
-      flash[:notice] = 'Profile updated!'
+      flash[:notice] = t('.profile_updated')
       redirect_to account_path
     else
       flash[:alert] = @user.errors.full_messages

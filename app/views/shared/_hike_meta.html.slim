@@ -1,11 +1,11 @@
 div.d-flex.flex-wrap.mt-2
   span.small
-    strong Тип похода:
+    strong = t('.hike_category')
     == ("&nbsp")
     = hike.category.name
     == (" &middot ")
   span.small
     == ("&nbsp")
-    strong Направление:
+    strong = t('.hike_direction')
     == ("&nbsp")
     = hike.direction.name

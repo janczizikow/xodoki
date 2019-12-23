@@ -1,7 +1,7 @@
 = render "shared/account_layout"
   .card
     .card-body
-      h2 Profile
+      h2 = t('.profile')
       .d-flex
         - if @user.avatar.present?
           = image_tag @user.avatar.url(:default), class: "avatar img-fluid rounded-circle mr-3 mb-1"

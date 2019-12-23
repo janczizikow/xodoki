@@ -2,4 +2,4 @@
   = simple_form_for(user, url: profile_path(user), html: { class: 'form-inline', multipart: true }) do |f|
     .d-none
       = f.input :remove_avatar, as: :boolean, input_html: { checked: true }
-    = f.submit 'Delete', class: "btn btn btn-secondary"
+    = f.submit t('common.delete'), class: "btn btn btn-secondary"

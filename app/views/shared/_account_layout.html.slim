@@ -4,9 +4,9 @@
       .col-md-3
         .card.Account__menu.mb-5
           ul.list-group.list-group-flush
-            li.list-group-item = link_to "Аккаунт", account_path, class: "card-link"
-            li.list-group-item = link_to "Пароль", account_password_path, class: "card-link"
-            li.list-group-item = link_to "Мои походы", account_hikes_path, class: "card-link"
-            li.list-group-item = link_to "Выйти", destroy_user_session_path, method: :delete, class: "card-link"
+            li.list-group-item = link_to t('.account'), account_path, class: "card-link"
+            li.list-group-item = link_to t('.password'), account_password_path, class: "card-link"
+            li.list-group-item = link_to t('.my_hikes'), account_hikes_path, class: "card-link"
+            li.list-group-item = link_to t('.logout'), destroy_user_session_path, method: :delete, class: "card-link"
       .col-md-9
         == yield

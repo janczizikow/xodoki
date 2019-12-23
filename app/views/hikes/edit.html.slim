@@ -1,5 +1,5 @@
 = render "shared/banner" do
-  h2.text-center.text-white = "Редактировать поход: #{@hike.name}"
+  h2.text-center.text-white = "#{t('common.edit')} #{@hike.model_name.human}: #{@hike.name}"
 .my-5
   .container
     .page
@@ -13,4 +13,4 @@
         = f.input :kml, label: 'Файл KML / KMZ'
         = f.input :kml_cache, as: :hidden
         = f.button :submit, class: "btn btn-primary btn-block"
-        = link_to "Отмена", root_path, class: "btn btn-secondary btn-block"
+        = link_to t("common.cancel"), root_path, class: "btn btn-secondary btn-block"

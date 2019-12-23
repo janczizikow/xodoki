@@ -4,7 +4,7 @@ h4.mt-2 Avatar
     / = f.input :remove_avatar, as: :boolean, input_html: { checked: true }
   = f.input :avatar, label: false
   = f.input :avatar_cache, as: :hidden
-  = f.submit 'Upload', class: "btn btn btn-primary"
+  = f.submit t('.upload'), class: "btn btn btn-primary"
 
 / <form id="form1" runat="server">
 /   <input type='file' id="imgInp" />

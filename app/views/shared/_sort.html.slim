@@ -1,15 +1,15 @@
 .container.my-3
   ul class="nav nav-tabs"
     li class="nav-item"
-      = link_to t('.All'), root_path(search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].blank? && params[:past].blank?)
+      = link_to t('.all'), root_path(search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].blank? && params[:past].blank?)
     li class="nav-item"
-      = link_to t('.Upcoming'), root_path(upcoming: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].present?)
+      = link_to t('.upcoming'), root_path(upcoming: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:upcoming].present?)
     li class="nav-item"
-      = link_to t('.Past'), root_path(past: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:past].present?)
+      = link_to t('.past'), root_path(past: true, search: params[:search], sort: params[:sort]), class: class_string('nav-link', 'active': params[:past].present?)
     li class="nav-item ml-auto"
       div class="dropdown"
-      button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Сортировать
+      button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" = t('.sort')
       div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-        = link_to 'Дата: по убыванию', root_path(sort: 'date_descending', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"
-        = link_to 'Дата: по возрастанию', root_path(sort: 'date_ascending', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"
-        = link_to 'Самые последние', root_path(sort: 'recent', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"
+        = link_to t('.date_descending'), root_path(sort: 'date_descending', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"
+        = link_to t('.date_ascending'), root_path(sort: 'date_ascending', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"
+        = link_to t('.recent'), root_path(sort: 'recent', search: params[:search], upcoming: params[:upcoming], past: params[:past]), class: "dropdown-item small"

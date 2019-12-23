@@ -19,7 +19,7 @@ class HikesController < ApplicationController
     @hike.user = current_user
     authorize @hike
     if @hike.save
-      flash[:notice] = 'Hike created'
+      flash[:notice] = t('.hike_created')
       redirect_to @hike
     else
       flash[:alert] = @hike.errors.full_messages.join(', ')
@@ -31,7 +31,7 @@ class HikesController < ApplicationController
 
   def update
     if @hike.update(hike_params)
-      flash[:notice] = 'Hike updated'
+      flash[:notice] = t('.hike_updated')
       redirect_to @hike
     else
       flash[:alert] = @hike.errors.full_messages.join(', ')
@@ -41,7 +41,7 @@ class HikesController < ApplicationController
 
   def destroy
     if @hike.destroy
-      flash[:notice] = 'Hike removed'
+      flash[:notice] = t('.hike_removed')
       redirect_to root_path
     else
       flash[:alert] = @spot.errors.full_messages.join(', ')

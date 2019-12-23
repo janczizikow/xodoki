@@ -7,7 +7,7 @@ footer.footer
           |
             &copy;
             &nbsp;
-          = "#{Time.zone.now.year} Группа Ганелина. #{t('.All rights reserved')}."
+          = "#{Time.zone.now.year} #{meta_product_name}. #{t('.all_rights_reserved')}."
       .footer__links
         nav
           - Page.included_in_footer.each do |p|

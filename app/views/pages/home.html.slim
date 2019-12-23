@@ -12,8 +12,8 @@
       - if @pagy.pages > 1
         == pagy_bootstrap_nav(@pagy).html_safe
     - else
-      h3 Ничего не найдено
-      p Поиск не дал результатов. Попробуйте поискать по другим ключевым словам.
+      h3 = t('.not_found')
+      p = t('.no_results_try_different_keywords')
 
 = content_for(:after_js) do
   = javascript_pack_tag "filters"

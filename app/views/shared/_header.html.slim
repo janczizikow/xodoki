@@ -10,35 +10,36 @@ header.header.navbar.navbar-expand-md.navbar-light.fixed-top
         = hidden_field_tag :upcoming, params[:upcoming]
         = hidden_field_tag :past, params[:past]
         .input-group.ap--input-group
-          = search_field_tag :search, nil, placeholder: "Поиск...", class: "form-control nav-search-input", value: params[:search]
+          = search_field_tag :search, nil, placeholder: t('.search'), class: "form-control nav-search-input", value: params[:search]
           .input-group-append
             button type="submit" class="btn btn-outline-secondary btn-search"
               i class="fas fa-search"
     ul.navbar-nav.ml-auto
       li.nav-item
-        = link_to t('.Hikes'), root_path, class: "nav-link"
+        = link_to t('.hikes'), root_path, class: "nav-link"
       li.nav-item
-        = link_to "Ходоки", users_path, class: "nav-link"
+        = link_to t('.hikers'), users_path, class: "nav-link"
       - Page.included_in_header.each do |p|
         li.nav-item
           = link_to p.title, "/#{p.slug}", class: "nav-link"
       - if user_signed_in?
         li.nav-item
-          = link_to t('.Favorites'), favorites_path, class: "nav-link"
+          = link_to t('.favorites'), favorites_path, class: "nav-link"
         li.nav-item.dropdown
           a class="nav-item dropdown-toggle nav-link nav-dropdown" href="#" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            span.d-md-none Аккаунт
+            span.d-md-none
+              = t('.account')
             i class="d-none d-md-inline fas fa-user-circle fa-lg"
           .dropdown-menu.dropdown-menu-right aria-labelledby="accountDropdown"
-            = link_to t('.Account'), account_path, class: "dropdown-item"
-            = link_to t('.Password'), account_password_path, class: "dropdown-item"
-            = link_to t('.My hikes'), account_hikes_path, class: "dropdown-item"
+            = link_to t('.account'), account_path, class: "dropdown-item"
+            = link_to t('.password'), account_password_path, class: "dropdown-item"
+            = link_to t('.my_hikes'), account_hikes_path, class: "dropdown-item"
             - if current_user.admin?
-              = link_to t('.Admin'), admin_root_path, class: "dropdown-item"
+              = link_to t('.admin'), admin_root_path, class: "dropdown-item"
             div.dropdown-divider
-            = link_to t('.Logout'), destroy_user_session_path, method: :delete, class: "dropdown-item"
+            = link_to t('.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item"
         li.nav-item
-          = link_to t('.New hike'), new_hike_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"
+          = link_to t('.new_hike'), new_hike_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"
       - else
         li.nav-item
-          = link_to t('.Login'), new_user_session_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"
+          = link_to t('.login'), new_user_session_path, class: "btn btn-primary btn-block btn-add my-2 my-md-0"

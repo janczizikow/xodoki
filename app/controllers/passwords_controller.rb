@@ -7,7 +7,7 @@ class PasswordsController < ApplicationController
   def update
     if @user.update_with_password(password_params)
       bypass_sign_in(@user)
-      flash[:notice] = 'Password updated!'
+      flash[:notice] = t('.password_updated')
       redirect_to account_password_path
     else
       flash[:alert] = @user.errors.full_messages.join(', ')

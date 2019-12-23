@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     @favorite.user = current_user
     authorize @favorite
     if @favorite.save
-      flash[:notice] = 'Hike added to favoriets'
+      flash[:notice] = t('.hike_added_to_favorites')
     else
       flash[:alert] = @favorite.errors.full_messages.join(', ')
     end
@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     if @favorite.destroy
-      flash[:notice] = 'Hike removed from favorites'
+      flash[:notice] = t('.hike_removed_from_favorites')
     else
       flash[:alert] = @favorite.errors.full_messages.join(', ')
     end

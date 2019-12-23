@@ -1,4 +1,4 @@
 - if @hike.user == current_user
   div.flex.mt-3
-    = link_to raw('<i class="far fa-edit mr-1"></i> Редактировать'), edit_hike_path(@hike), class: 'small mr-3'
-    = link_to raw('<i class="far fa-trash-alt mr-1"></i> Удалить'), @hike, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить этот поход?' }, class: 'small'
+    = link_to raw("<i class='far fa-edit mr-1'></i> #{t('common.edit')}"), edit_hike_path(@hike), class: 'small mr-3'
+    = link_to raw("<i class='far fa-trash-alt mr-1'></i> #{t('common.delete')}"), @hike, method: :delete, data: { confirm: t('.are_you_sure_delete') }, class: 'small'

@@ -23,7 +23,7 @@ module Admin
     private
 
     def user_not_authorized
-      redirect_to(request.referer || root_path, alert: 'You are not authorized to perform this action.')
+      redirect_to(request.referer || root_path, alert: t('common.unauthorized'))
     end
   end
 end

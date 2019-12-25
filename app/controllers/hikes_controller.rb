@@ -30,6 +30,8 @@ class HikesController < ApplicationController
   def edit; end
 
   def update
+    @hike.remove_image! if hike_params[:remove_image]
+    @hike.remove_kml! if hike_params[:remove_kml]
     if @hike.update(hike_params)
       flash[:notice] = t('.hike_updated')
       redirect_to @hike
@@ -58,7 +60,10 @@ class HikesController < ApplicationController
 
   def hike_params
     params.require(:hike).permit(
-      :name, :description, :date, :distance, :kml, :kml_cache, :category_id, :direction_id
+      :name, :description, :date, :distance,
+      :image, :image_cache, :remove_image,
+      :kml, :kml_cache, :remove_kml,
+      :category_id, :direction_id
     )
   end
 end

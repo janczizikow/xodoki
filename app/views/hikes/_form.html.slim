@@ -1,0 +1,39 @@
+= simple_form_for hike do |f|
+  = f.input :name, label: 'Название похода'
+  = f.input :description, label: 'Описание похода'
+  = f.input :date, label: 'Дата похода'
+  = f.input :distance, label: 'Расстояние (км)'
+  = f.input :category_id, collection: Category.all, value_method: :id, label: 'Тип похода', include_blank: '-- Пожалуйста выберите тип похода --', required: true
+  = f.input :direction_id, collection: Direction.all, value_method: :id, label: 'Направление', include_blank: '--Пожалуйста выберите направление похода--',required: true
+  - if hike.image.present?
+    .form-group
+      label.form-control-label Картинка
+      .input-group
+        .custom-file
+          = f.input :image, label: false, input_html: { class: "custom-file-input" }
+          = f.input :image_cache, as: :hidden
+          label for="hike_image" class="custom-file-label" = hike.image.identifier
+        .input-group-append
+          button.input-group-text data-remove="hike_image" type="button" = t('common.delete')
+    .d-none
+      = f.input :remove_image, as: :boolean, checked_value: true, unchecked_value: false
+  - else
+    = f.input :image, label: 'Картинка', type: :file
+    = f.input :image_cache, as: :hidden
+  - if hike.kml.present?
+    .form-group
+      label.form-control-label Файл KML / KMZ
+      .input-group
+        .custom-file
+          = f.input :kml, label: false, input_html: { class: "custom-file-input" }
+          = f.input :kml_cache, as: :hidden
+          label for="hike_kml" class="custom-file-label" = hike.kml.identifier
+        .input-group-append
+          button.input-group-text data-remove="hike_kml" type="button" = t('common.delete')
+    .d-none
+      = f.input :remove_kml, as: :boolean, checked_value: true, unchecked_value: false
+  -else
+    = f.input :kml, label: 'Файл KML / KMZ'
+    = f.input :kml_cache, as: :hidden
+  = f.button :submit, class: "btn btn-primary btn-block"
+  = link_to t("common.cancel"), root_path, class: "btn btn-secondary btn-block"

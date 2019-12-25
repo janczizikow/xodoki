@@ -3,14 +3,7 @@
 .my-5
   .container
     .page
-      = simple_form_for @hike do |f|
-        = f.input :name, label: 'Название похода'
-        = f.input :description, label: 'Описание похода'
-        = f.input :date, label: 'Дата похода'
-        = f.input :distance, label: 'Расстояние (км)'
-        = f.input :category_id, collection: Category.all, value_method: :id, label: 'Тип похода', include_blank: '-- Пожалуйста выберите тип похода --', required: true
-        = f.input :direction_id, collection: Direction.all, value_method: :id, label: 'Направление', include_blank: '--Пожалуйста выберите направление похода--',required: true
-        = f.input :kml, label: 'Файл KML / KMZ'
-        = f.input :kml_cache, as: :hidden
-        = f.button :submit, class: "btn btn-primary btn-block"
-        = link_to t("common.cancel"), root_path, class: "btn btn-secondary btn-block"
+      = render partial: "form", locals: {hike: @hike}
+
+= content_for(:after_js) do
+  = javascript_pack_tag "hike-form"

@@ -10,6 +10,7 @@
     "dotenv-webpack": "^1.5.7",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.0",
+    "lazysizes": "^5.2.0",
     "popper.js": "^1.14.4",
     "selectize": "^0.12.6",
     "trix": "^1.0.0"

@@ -33,6 +33,7 @@ ru:
     edit: Редактировать
     delete: Удалить
     unauthorized: ПНХ 🍆
+    choose_file: Выберите фаӣл...
   pages:
     home:
       not_found: Ничего не найдено
@@ -90,7 +91,7 @@ ru:
   hikes:
     create:
       hike_created: Создан поход
-    udpate:
+    update:
       hike_updated: Поход обновлён
     destroy:
       hike_removed: Поход удалён

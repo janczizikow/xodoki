@@ -5,6 +5,8 @@ section class="my-5"
         = link_to raw("<i class='fas fa-arrow-left mb-3'></i> #{t('common.back')}"), root_path
       .col-lg-7
         div class="card mb-4 shadow-sm"
+          - if @hike.image.present?
+            = image_tag @hike.image.default.url, class: 'card-img-top'
           .card-body
             div class="d-block"
               div.d-flex.align-items-center.flex-wrap-wrap.justify-content-between

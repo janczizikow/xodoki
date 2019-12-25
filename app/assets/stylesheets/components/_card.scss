@@ -7,4 +7,19 @@
     text-decoration: none;
     color: inherit;
   }
+
+  &__img {
+    margin: 0;
+    background: $placeholder;
+    overflow: hidden;
+    max-height: 180px;
+    min-height: 180px;
+
+    > * {
+      object-fit: cover;
+      object-position: 50% 50%;
+      height: 180px;
+      width: 100%;
+    }
+  }
 }

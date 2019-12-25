@@ -6,6 +6,7 @@ class Hike < ApplicationRecord
 
   friendly_id :name, use: :slugged
   mount_uploader :kml, KmlUploader
+  mount_uploader :image, ImageUploader
 
   scope :my, ->(user) { where(user: user) }
   scope :category, ->(params) { where(category_id: params[:category_id]) }
@@ -22,6 +23,7 @@ class Hike < ApplicationRecord
   belongs_to :category
   belongs_to :direction
   has_many :photos, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :name, :description, :date, :distance, presence: true
 

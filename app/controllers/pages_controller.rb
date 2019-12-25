@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   def home
     @pagy, @hikes = pagy Hike.where(nil).order(sort)
     @pagy, @hikes = pagy Hike.upcoming if params[:upcoming].present?
-    @pagy, @hikes = pagy Hike.past if params[:pasr].present?
+    @pagy, @hikes = pagy Hike.past if params[:past].present?
     # filter_params(params).each do |key, value|
     #   value["#{key}_id".to_sym].shift
     #   @hikes = @hikes.public_send(key, value) if value["#{key}_id".to_sym].all?(&:present?)

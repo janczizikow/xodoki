@@ -1,5 +1,4 @@
-- if hike.kml.url.present?
-  div
-    = link_to hike.kml.url do
-      i class="fas fa-download text-primary"
-      span.mx-2.small = "#{t('.download')} KML"
+div
+  = link_to kml.file.url do
+    i class="fas fa-download text-primary"
+    span.mx-2.small = "#{t('.download')} #{kml.name} KML"

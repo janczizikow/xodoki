@@ -24,8 +24,11 @@ class Hike < ApplicationRecord
   belongs_to :direction
   has_many :photos, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :kmls, dependent: :destroy
 
   validates :name, :description, :date, :distance, presence: true
+
+  accepts_nested_attributes_for :kmls, allow_destroy: true
 
   def normalize_friendly_id(name)
     name.to_slug.transliterate(:russian).normalize.to_s

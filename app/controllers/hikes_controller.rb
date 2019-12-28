@@ -63,7 +63,8 @@ class HikesController < ApplicationController
       :name, :description, :date, :distance,
       :image, :image_cache, :remove_image,
       :kml, :kml_cache, :remove_kml,
-      :category_id, :direction_id
+      :category_id, :direction_id,
+      kmls_attributes: %i[id name file file_cache _destroy]
     )
   end
 end

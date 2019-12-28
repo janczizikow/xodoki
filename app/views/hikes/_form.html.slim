@@ -20,20 +20,31 @@
   - else
     = f.input :image, label: 'Картинка', type: :file
     = f.input :image_cache, as: :hidden
-  - if hike.kml.present?
-    .form-group
-      label.form-control-label Файл KML / KMZ
-      .input-group
-        .custom-file
-          = f.input :kml, label: false, input_html: { class: "custom-file-input" }
-          = f.input :kml_cache, as: :hidden
-          label for="hike_kml" class="custom-file-label" = hike.kml.identifier
-        .input-group-append
-          button.input-group-text data-remove="hike_kml" type="button" = t('common.delete')
-    .d-none
-      = f.input :remove_kml, as: :boolean, checked_value: true, unchecked_value: false
-  -else
-    = f.input :kml, label: 'Файл KML / KMZ'
-    = f.input :kml_cache, as: :hidden
+  h3 Файлы KML / KMZ
+  - if hike.kmls.empty?
+    = f.simple_fields_for :kmls, hike.kmls.build do |ff|
+      div class="mt-3 pb-3 border-bottom js-hike-kml"
+        = ff.input :name
+        = ff.input :file
+        button type="button" class="btn btn-sm btn-danger js-remove-kml" Удалить Фаил КМЛ
+  - else
+    = f.simple_fields_for :kmls, hike.kmls do |ff|
+      div class="mt-3 pb-3 border-bottom js-hike-kml"
+        = ff.input :id, as: :hidden
+        = ff.input :name
+        - if hike.persisted?
+          .form-group
+            label.form-control-label Файл
+            .input-group
+              .custom-file
+                = ff.input :file, label: false, input_html: { class: "custom-file-input" }
+                = ff.input :file_cache, as: :hidden
+                label class="custom-file-label" = ff.object.file.identifier
+          .d-none
+            = ff.input :_destroy, as: :boolean, checked_value: true, unchecked_value: false
+        - else
+          = ff.input :file
+        button type="button" class="btn btn-sm btn-danger js-remove-kml" Удалить Фаӣл
+  button type="button" class="btn btn-sm btn-info mt-3 mb-3 js-add-kml" + Добавить Фаӣл
   = f.button :submit, class: "btn btn-primary btn-block"
-  = link_to t("common.cancel"), root_path, class: "btn btn-secondary btn-block"
+  = link_to t("common.cancel"), hike.persisted? ? hike_path(hike) : root_path, class: "btn btn-secondary btn-block"

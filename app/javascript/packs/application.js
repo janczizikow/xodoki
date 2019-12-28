@@ -15,3 +15,15 @@ require("@rails/activestorage").start();
 
 import "bootstrap";
 import "lazysizes";
+
+import { initMap } from "../utils/map";
+
+$('a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+  const activeTabContent = $(".tab-pane.active");
+  const mapElement = activeTabContent.find(".js-map")[0];
+
+  if (mapElement) {
+    initMap(mapElement);
+    mapElement.className = "";
+  }
+});

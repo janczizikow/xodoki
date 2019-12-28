@@ -4,3 +4,6 @@
   .container
     .page
       = render partial: "form", locals: {hike: @hike}
+
+= content_for(:after_js) do
+  = javascript_pack_tag "hike-form"

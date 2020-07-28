@@ -3,6 +3,7 @@
 
 # Ignore environment variables
 .env*
+.rbenv-vars
 
 # Ignore Mac and Linux file system files
 *.swp

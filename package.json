@@ -1,5 +1,5 @@
 {
-  "name": "xodki",
+  "name": "xodoki",
   "private": true,
   "dependencies": {
     "@rails/actiontext": "^6.0.1",

@@ -31,8 +31,8 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 
 
-gem "aws-sdk-s3", require: false
-gem "fog-aws"
+gem 'aws-sdk-s3', require: false
+gem 'fog-aws'
 gem 'administrate'
 gem 'autoprefixer-rails'
 gem 'babosa'
@@ -48,6 +48,7 @@ gem 'pg_search'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'sentry-raven'
 
 group :development, :test do
   gem 'capybara'

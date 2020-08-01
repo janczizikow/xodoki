@@ -39,5 +39,8 @@ module Xodoki
     end
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Sentry
+    config.dsn = ENV['SENTRY_DSN']
   end
 end

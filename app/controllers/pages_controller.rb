@@ -5,9 +5,9 @@ class PagesController < ApplicationController
   before_action :set_page, only: :show
 
   def home
-    @pagy, @hikes = pagy Hike.where(nil).order(sort)
-    @pagy, @hikes = pagy Hike.upcoming if params[:upcoming].present?
-    @pagy, @hikes = pagy Hike.past if params[:past].present?
+    @pagy, @hikes = pagy Hike.includes(:category).where(nil).order(sort)
+    @pagy, @hikes = pagy Hike.includes(:category).upcoming if params[:upcoming].present?
+    @pagy, @hikes = pagy Hike.includes(:category).past if params[:past].present?
     # filter_params(params).each do |key, value|
     #   value["#{key}_id".to_sym].shift
     #   @hikes = @hikes.public_send(key, value) if value["#{key}_id".to_sym].all?(&:present?)

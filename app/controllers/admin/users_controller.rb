@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class UsersController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
@@ -10,11 +12,11 @@ module Admin
       if requested_resource.update(resource_params)
         redirect_to(
           [namespace, requested_resource],
-          notice: translate_with_resource("update.success"),
+          notice: translate_with_resource('update.success')
         )
       else
         render :edit, locals: {
-          page: Administrate::Page::Form.new(dashboard, requested_resource),
+          page: Administrate::Page::Form.new(dashboard, requested_resource)
         }
       end
     end

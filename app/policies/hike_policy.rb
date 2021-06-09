@@ -20,7 +20,7 @@ class HikePolicy < ApplicationPolicy
   end
 
   def update?
-     user&.admin? || record.user == user
+    user&.admin? || record.user == user
   end
 
   def edit?

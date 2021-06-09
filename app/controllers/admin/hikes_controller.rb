@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class HikesController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
@@ -13,7 +15,7 @@ module Admin
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
     #
-    def find_resource(param)
+    def find_resource(_param)
       Hike.friendly.find(params[:id])
     end
 

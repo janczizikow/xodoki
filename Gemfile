@@ -69,6 +69,7 @@ group :development do
   gem 'rails_real_favicon'
   gem 'letter_opener'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do

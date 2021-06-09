@@ -2,10 +2,12 @@
 
 FactoryBot.define do
   factory :hike do
-    user { nil }
+    user
+    category
+    direction
     name { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
     date { Faker::Date }
-    distance { Faker::Number.between(1, 10) }
+    distance { Faker::Number.between(from: 1, to: 10) }
   end
 end

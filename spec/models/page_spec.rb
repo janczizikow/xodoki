@@ -3,17 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Page, type: :model do
-  let(:page) { build(:page) }
+  let(:subject) { build(:page) }
 
-  it 'is invalid without title' do
-    expect(build(:page, title: '')).to_not be_valid
-  end
-
-  it 'is invalid without content' do
-    expect(build(:page, content: '')).to_not be_valid
-  end
-
-  it 'has a slug after create' do
-    expect(build(:page).slug).to be_truthy
-  end
+  it { should validate_presence_of(:title) }
+  it { should validate_uniqueness_of(:title).case_insensitive }
+  it { should validate_presence_of(:content) }
+  it { should have_rich_text(:content) }
 end

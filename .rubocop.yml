@@ -1,22 +1,22 @@
 AllCops:
   Exclude:
-    - 'bin/*'
-    - 'config/**/*'
-    - 'db/**/*'
-    - 'vendor/bundle/**/*'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - 'spec/spec_helper.rb'
-    - 'spec/rails_helper.rb'
-    - 'spec/support/**/*'
-    - 'node_modules/**/*'
-    - 'app/views/**/*'
+    - "bin/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "vendor/bundle/**/*"
+    - "**/Gemfile"
+    - "**/Rakefile"
+    - "spec/spec_helper.rb"
+    - "spec/rails_helper.rb"
+    - "spec/support/**/*"
+    - "node_modules/**/*"
+    - "app/views/**/*"
 
 Rails:
   Enabled: true
 
 Naming/VariableNumber:
-  EnforcedStyle: 'snake_case'
+  EnforcedStyle: snake_case
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -26,7 +26,7 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - "spec/**/*.rb"
 
 Metrics/LineLength:
   Max: 105

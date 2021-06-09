@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :photo do
-    hike { nil }
-    text { "MyString" }
-    link { "MyString" }
-    slug { "MyString" }
+    user
+    hike
+    text { Faker::Lorem.sentence }
+    link { Faker::Internet.url }
   end
 end

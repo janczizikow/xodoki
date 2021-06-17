@@ -15,9 +15,11 @@ jobs:
     services:
       postgres:
         image: postgres:10.17
+        ports:
+          - 5432:5432
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: xodoki_test
           # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -42,7 +44,11 @@ jobs:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-      - run: bundle exec rails db:setup
+      - name: Setup Database
+        run: bundle exec rails db:setup
         env:
           RAILS_ENV: "test"
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_PORT: 5432
       - run: bundle exec rspec

@@ -8,10 +8,6 @@ class PagesController < ApplicationController
     @pagy, @hikes = pagy Hike.where(nil).order(sort)
     @pagy, @hikes = pagy Hike.upcoming if params[:upcoming].present?
     @pagy, @hikes = pagy Hike.past if params[:past].present?
-    # filter_params(params).each do |key, value|
-    #   value["#{key}_id".to_sym].shift
-    #   @hikes = @hikes.public_send(key, value) if value["#{key}_id".to_sym].all?(&:present?)
-    # end
     @pagy, @hikes = pagy @hikes.search(params[:search]) if params[:search].present?
   end
 
@@ -33,8 +29,6 @@ class PagesController < ApplicationController
       'created_at DESC'
     when 'date_ascending'
       'date ASC'
-    when 'date_descending'
-      'date DESC'
     else
       'date DESC'
     end

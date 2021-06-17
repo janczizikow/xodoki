@@ -9,6 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
   storage :fog
 
+  # rubocop:disable Metrics/LineLength
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   # def store_dir
@@ -29,6 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  # rubocop:enable Metrics/LineLength
 
   # Create different versions of your uploaded files:
   version :thumb do

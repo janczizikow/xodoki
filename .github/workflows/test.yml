@@ -43,4 +43,6 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
       - run: bundle exec rails db:setup
+        env:
+          RAILS_ENV: "test"
       - run: bundle exec rspec

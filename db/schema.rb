@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_011250) do
+ActiveRecord::Schema.define(version: 2021_06_17_115134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,14 @@ ActiveRecord::Schema.define(version: 2019_12_26_011250) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "directions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_directions_on_name", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_011250) do
     t.bigint "hike_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hike_id", "user_id"], name: "index_favorites_on_hike_id_and_user_id", unique: true
     t.index ["hike_id"], name: "index_favorites_on_hike_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -117,6 +120,7 @@ ActiveRecord::Schema.define(version: 2019_12_26_011250) do
     t.boolean "in_header"
     t.boolean "in_footer"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["title"], name: "index_pages_on_title", unique: true
   end
 
   create_table "photos", force: :cascade do |t|

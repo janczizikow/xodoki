@@ -17,10 +17,6 @@ jobs:
         image: postgres:10.17
         ports:
           - 5432:5432
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -48,7 +44,5 @@ jobs:
         run: bundle exec rails db:setup
         env:
           RAILS_ENV: "test"
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_PORT: 5432
+          DATABASE_URL: "postgres://postgres@localhost:5432/xodoki_test"
       - run: bundle exec rspec

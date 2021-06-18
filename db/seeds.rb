@@ -26,7 +26,11 @@ if Direction.count < 1
   p 'Directions generated!'
 end
 
-User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? && User.count < 1
+if User.count < 1 && !Rails.env.production?
+  p 'Generating user...'
+  User.create!(email: 'user@example.com', password: 'password', password_confirmation: 'password')
+  p 'User generated!'
+end
 
 if Hike.count < 1
   p 'Generating hikes...'

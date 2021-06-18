@@ -5,9 +5,7 @@ class PagesController < ApplicationController
   before_action :set_page, only: :show
 
   def home
-    @pagy, @hikes = pagy Hike.where(nil).order(sort)
-    @pagy, @hikes = pagy Hike.upcoming if params[:upcoming].present?
-    @pagy, @hikes = pagy Hike.past if params[:past].present?
+    @pagy, @hikes = pagy hikes
     @pagy, @hikes = pagy @hikes.search(params[:search]) if params[:search].present?
   end
 
@@ -34,7 +32,10 @@ class PagesController < ApplicationController
     end
   end
 
-  def filter_params(params)
-    params.slice(:category, :direction)
+  def hikes
+    return Hike.upcoming if params.dig(:upcoming).present?
+    return Hike.past if params.dig(:past).present?
+
+    Hike.where(nil).order(sort)
   end
 end

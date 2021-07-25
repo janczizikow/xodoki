@@ -3,27 +3,33 @@
 require 'rails_helper'
 
 RSpec.describe HikePolicy do
-  let(:user) { User.new }
+  subject { described_class.new(user, hike) }
 
-  subject { described_class }
+  let(:hike) { build(:hike) }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when visitor' do
+    let(:user) { nil }
+
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to forbid_actions(%i[create new update edit destroy hikes]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when user' do
+    let(:user) { build(:user) }
+
+    it { is_expected.to permit_actions(%i[show create new hikes]) }
+    it { is_expected.to forbid_actions(%i[update edit destroy]) }
+
+    context 'when hike belongs to user' do
+      let(:user) { hike.user }
+
+      it { is_expected.to permit_actions(%i[update edit destroy]) }
+    end
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'when admin' do
+    let(:user) { build(:user, :admin) }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[show create new hikes update edit destroy hikes]) }
   end
 end

@@ -30,8 +30,6 @@ class HikesController < ApplicationController
   def edit; end
 
   def update
-    @hike.remove_image! if hike_params[:remove_image]
-    @hike.remove_kml! if hike_params[:remove_kml]
     if @hike.update(hike_params)
       flash[:notice] = t('.hike_updated')
       redirect_to @hike

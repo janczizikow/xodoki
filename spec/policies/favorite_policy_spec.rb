@@ -1,27 +1,28 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe FavoritePolicy do
-  let(:user) { User.new }
+  subject { described_class.new(user, favorite) }
 
-  subject { described_class }
+  let(:favorite) { build(:favorite) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when visitor' do
+    let(:user) { nil }
+
+    it { is_expected.to forbid_actions(%i[create destroy]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when user' do
+    let(:user) { build(:user) }
+
+    it { is_expected.to permit_action(:create) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'when favorite belongs to user' do
+    let(:user) { favorite.user }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[create destroy]) }
   end
 end

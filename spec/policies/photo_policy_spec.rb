@@ -1,27 +1,28 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PhotoPolicy do
-  let(:user) { User.new }
+  subject { described_class.new(user, photo) }
 
-  subject { described_class }
+  let(:photo) { build(:photo) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when visitor' do
+    let(:user) { nil }
+
+    it { is_expected.to forbid_actions(%i[create update destroy]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when user' do
+    let(:user) { build(:user) }
+
+    it { is_expected.to permit_action(:create) }
+    it { is_expected.to forbid_actions(%i[update destroy]) }
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'when photo belongs to user' do
+    let(:user) { photo.user }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[create update destroy]) }
   end
 end

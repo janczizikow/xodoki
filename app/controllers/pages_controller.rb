@@ -5,13 +5,7 @@ class PagesController < ApplicationController
   before_action :set_page, only: :show
 
   def home
-    @pagy, @hikes = pagy Hike.includes(:category).where(nil).order(sort)
-    @pagy, @hikes = pagy Hike.includes(:category).upcoming if params[:upcoming].present?
-    @pagy, @hikes = pagy Hike.includes(:category).past if params[:past].present?
-    # filter_params(params).each do |key, value|
-    #   value["#{key}_id".to_sym].shift
-    #   @hikes = @hikes.public_send(key, value) if value["#{key}_id".to_sym].all?(&:present?)
-    # end
+    @pagy, @hikes = pagy hikes
     @pagy, @hikes = pagy @hikes.search(params[:search]) if params[:search].present?
   end
 
@@ -33,14 +27,15 @@ class PagesController < ApplicationController
       'created_at DESC'
     when 'date_ascending'
       'date ASC'
-    when 'date_descending'
-      'date DESC'
     else
       'date DESC'
     end
   end
 
-  def filter_params(params)
-    params.slice(:category, :direction)
+  def hikes
+    return Hike.upcoming if params.dig(:upcoming).present?
+    return Hike.past if params.dig(:past).present?
+
+    Hike.where(nil).order(sort)
   end
 end

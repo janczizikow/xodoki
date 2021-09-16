@@ -1,27 +1,27 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CategoryPolicy, type: :policy do
-  let(:user) { User.new }
+  subject { described_class.new(user, category) }
 
-  subject { described_class }
+  let(:category) { build(:category) }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when visitor' do
+    let(:user) { nil }
+
+    it { is_expected.to forbid_actions(%i[index show create new update edit destroy]) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'when user' do
+    let(:user) { build(:user) }
+
+    it { is_expected.to forbid_actions(%i[index show create new update edit destroy]) }
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'when admin' do
+    let(:user) { build(:user, :admin) }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions(%i[index show create new update edit destroy]) }
   end
 end

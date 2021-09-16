@@ -68,10 +68,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails_real_favicon'
   gem 'letter_opener'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
   gem 'guard'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'pundit-matchers', '~> 1.7.0'
+  gem 'codecov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

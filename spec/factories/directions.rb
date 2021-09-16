@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :direction do
-    name { "MyString" }
+    name { Faker::Lorem.unique.sentence }
   end
 end

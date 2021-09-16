@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :directions
 
       root to: "users#index"
-    end
+  end
   # Root
   root to: 'pages#home'
 

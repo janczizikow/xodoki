@@ -1,22 +1,25 @@
+require: rubocop-rails
+
 AllCops:
   Exclude:
-    - 'bin/*'
-    - 'config/**/*'
-    - 'db/**/*'
-    - 'vendor/bundle/**/*'
-    - '**/Gemfile'
-    - '**/Rakefile'
-    - 'spec/spec_helper.rb'
-    - 'spec/rails_helper.rb'
-    - 'spec/support/**/*'
-    - 'node_modules/**/*'
-    - 'app/views/**/*'
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - Gemfile
+    - Rakefile
+    - Guardfile
+    - config.ru
+    - vendor/bundle/**/*
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - spec/support/**/*
+    - node_modules/**/*
 
 Rails:
   Enabled: true
 
 Naming/VariableNumber:
-  EnforcedStyle: 'snake_case'
+  EnforcedStyle: snake_case
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
@@ -26,7 +29,7 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - "spec/**/*.rb"
 
 Metrics/LineLength:
   Max: 105

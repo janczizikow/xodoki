@@ -20,7 +20,7 @@ By default, it renders:
     <meta name="viewport" content="initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-      <%= content_for(:title) || 'Dashboard' %> - <%= Rails.application.class.parent_name.titlecase %>
+      <%= content_for(:title) || 'Dashboard' %> - <%= Rails.application.class.module_parent_name.titlecase %>
     </title>
     <%= render 'application/favicon' %>
     <%= javascript_pack_tag 'administrate', 'data-turbolinks-track': 'reload' %>

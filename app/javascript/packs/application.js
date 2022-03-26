@@ -3,8 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start();
-require("@rails/activestorage").start();
+import Rails from "@rails/ujs";
+import * as ActiveStorage from "@rails/activestorage";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -12,13 +12,15 @@ require("@rails/activestorage").start();
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+Rails.start();
+ActiveStorage.start();
 
 import "bootstrap";
 import "lazysizes";
 
 import { initMap } from "../utils/map";
 
-$('a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+$('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
   const activeTabContent = $(".tab-pane.active");
   const mapElement = activeTabContent.find(".js-map")[0];
 

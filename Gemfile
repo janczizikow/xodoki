@@ -58,7 +58,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do

@@ -24,7 +24,7 @@ RSpec.describe UserPolicy do
   context 'when admin' do
     let(:user) { build(:user, :admin) }
 
-    it { is_expected.to permit_actions(%i[show create new update edit destroy account]) }
+    it { is_expected.to permit_actions(%i[index show create new update edit destroy account]) }
     it { is_expected.to forbid_action(:password) }
   end
 end

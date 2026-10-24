@@ -76,7 +76,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'pundit-matchers', '~> 1.7.0'
-  gem 'codecov', require: false
+  gem 'simplecov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

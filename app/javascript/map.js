@@ -1,4 +1,4 @@
-import { initMap } from "../utils/map";
+import { initMap } from "./utils/map";
 
 $(document).ready(function() {
   const mapElements = $(".js-map");

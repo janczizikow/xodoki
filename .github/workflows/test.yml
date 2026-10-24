@@ -32,10 +32,10 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - uses: actions/setup-node@v4
         with:
-          # node-sass 4.14 (via Webpacker 4) supports Node <= 14; bump after the jsbundling migration
-          node-version: 14
+          node-version: 20
           cache: yarn
       - run: yarn install --frozen-lockfile
+      - run: yarn build
       - name: Setup Database
         run: bundle exec rails db:setup
         env:

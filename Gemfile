@@ -1,19 +1,21 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '3.1.7'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
+# concurrent-ruby 1.3.5+ no longer requires 'logger', which Rails < 7.1 relies on; remove with the 7.1 upgrade
+gem 'concurrent-ruby', '1.3.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+# Bundle JavaScript with esbuild (see esbuild.config.js). Read more: https://github.com/rails/jsbundling-rails
+gem 'jsbundling-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
@@ -24,8 +26,6 @@ gem 'webpacker', '~> 5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
-gem 'uglifier', '>= 1.3.0'
 
 gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
@@ -65,7 +65,6 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  gem 'spring'
   gem 'rails_real_favicon'
   gem 'letter_opener'
   gem 'rubocop', require: false
@@ -74,9 +73,10 @@ end
 
 group :test do
   gem 'guard'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'pundit-matchers', '~> 1.7.0'
-  gem 'codecov', require: false
+  gem 'simplecov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

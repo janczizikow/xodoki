@@ -1,4 +1,4 @@
-import getFilename from "../utils/getFilename";
+import getFilename from "./utils/getFilename";
 
 $(document).ready(function() {
   // Image file input

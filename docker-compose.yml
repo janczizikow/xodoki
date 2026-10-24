@@ -1,0 +1,71 @@
+# Local development and testing:
+#   docker compose up                    # app on http://localhost:3000
+#   docker compose run --rm test         # run the rspec suite
+#   docker compose run --rm web bash     # shell in the app container
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web: &app
+    image: xodoki-dev # shared by web, js and test so they never use stale builds
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c "rm -f tmp/pids/server.pid
+      && (bundle check || bundle install)
+      && yarn install --frozen-lockfile
+      && yarn build
+      && bin/rails db:prepare
+      && bin/rails server -b 0.0.0.0"
+    environment: &app-env
+      RAILS_ENV: development
+      DATABASE_URL: postgres://postgres:postgres@db:5432/xodoki_development
+      BUNDLE_PATH: /bundle
+    volumes:
+      - .:/app
+      - bundle:/bundle
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Rebuilds app/assets/builds on JavaScript changes
+  js:
+    <<: *app
+    command: >
+      bash -c "yarn install --frozen-lockfile
+      && yarn build --watch"
+    ports: []
+    depends_on: []
+
+  test:
+    <<: *app
+    profiles: ["test"]
+    command: >
+      bash -c "(bundle check || bundle install)
+      && yarn install --frozen-lockfile
+      && yarn build
+      && bin/rails db:prepare
+      && bundle exec rspec"
+    environment:
+      <<: *app-env
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@db:5432/xodoki_test
+    ports: []
+
+volumes:
+  pgdata:
+  bundle:
+  node_modules:

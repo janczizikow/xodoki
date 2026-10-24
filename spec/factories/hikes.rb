@@ -7,7 +7,7 @@ FactoryBot.define do
     direction
     name { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
-    date { Faker::Date }
+    date { Faker::Date.forward(days: 30) }
     distance { Faker::Number.between(from: 1, to: 10) }
   end
 end

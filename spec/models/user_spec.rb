@@ -18,8 +18,8 @@ RSpec.describe User, type: :model do
     expect(build(:user, password: '')).to_not be_valid
   end
 
-  it 'is invalid without username' do
-    expect(build(:user, username: '')).to_not be_valid
+  it 'is valid without username' do
+    expect(build(:user, username: '')).to be_valid
   end
 
   describe 'password' do

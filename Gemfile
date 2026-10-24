@@ -73,6 +73,7 @@ end
 
 group :test do
   gem 'guard'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'pundit-matchers', '~> 1.7.0'
   gem 'codecov', require: false

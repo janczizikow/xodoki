@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PasswordsController < ApplicationController
-  before_action :set_user
   before_action :authenticate_user!
+  before_action :set_user
 
   def update
     if @user.update_with_password(password_params)

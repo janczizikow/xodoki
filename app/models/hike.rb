@@ -8,7 +8,7 @@ class Hike < ApplicationRecord
   mount_uploader :kml, KmlUploader
   mount_uploader :image, ImageUploader
 
-  scope :my, ->(user) { where(user: user) }
+  scope :my, ->(user) { where(user:) }
   scope :category, ->(params) { where(category_id: params[:category_id]) }
   scope :direction, ->(params) { where(direction_id: params[:direction_id]) }
   scope :upcoming, -> { where('date >= ?', Time.zone.now) }

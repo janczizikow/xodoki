@@ -33,8 +33,8 @@ class PagesController < ApplicationController
   end
 
   def hikes
-    return Hike.upcoming if params.dig(:upcoming).present?
-    return Hike.past if params.dig(:past).present?
+    return Hike.upcoming if params[:upcoming].present?
+    return Hike.past if params[:past].present?
 
     Hike.where(nil).order(sort)
   end

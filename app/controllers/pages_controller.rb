@@ -5,8 +5,9 @@ class PagesController < ApplicationController
   before_action :set_page, only: :show
 
   def home
-    @pagy, @hikes = pagy hikes
-    @pagy, @hikes = pagy @hikes.search(params[:search]) if params[:search].present?
+    scope = hikes
+    scope = scope.search(params[:search]) if params[:search].present?
+    @pagy, @hikes = paginate(scope)
   end
 
   def show; end
@@ -16,6 +17,19 @@ class PagesController < ApplicationController
   end
 
   private
+
+  # Pagy raises for a page that is not a positive integer or is past the last page,
+  # which user-supplied params can easily be. Fall back to the first or last page instead.
+  def paginate(scope)
+    pagy scope, page: page_param
+  rescue Pagy::OverflowError => e
+    pagy scope, page: e.pagy.last
+  end
+
+  def page_param
+    page = params[:page].to_s
+    page.match?(/\A[1-9]\d*\z/) ? page.to_i : 1
+  end
 
   def set_page
     @page = Page.friendly.find(params[:id])

@@ -5,7 +5,7 @@ ruby '3.2.9'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 8.0.0'
+gem 'rails', '~> 8.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -57,7 +57,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 7.0'
+  gem 'rspec-rails', '~> 8.0'
 end
 
 group :development do
@@ -73,7 +73,7 @@ end
 group :test do
   gem 'guard'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers', '~> 4.0'
+  gem 'shoulda-matchers', '~> 6.5'
   gem 'pundit-matchers', '~> 1.7.0'
   gem 'simplecov', require: false
 end

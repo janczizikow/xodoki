@@ -24,6 +24,10 @@ module Xodoki
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Cache entries are regenerable; 6.1 format is deprecated and removed in Rails 7.2.
+    # Move to 7.1 once the 7.1 deploy is final and rollback is off the table.
+    config.active_support.cache_format_version = 7.0
+
     # Locale settings
     config.i18n.default_locale = :ru
     config.i18n.available_locales = %i[en ru]
@@ -39,8 +43,5 @@ module Xodoki
     end
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    # Sentry
-    config.dsn = ENV['SENTRY_DSN']
   end
 end

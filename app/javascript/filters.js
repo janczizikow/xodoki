@@ -1,3 +1,3 @@
-$('.dropdown-menu.keep-open').on('click', e => {
+$(".dropdown-menu.keep-open").on("click", (e) => {
   e.stopPropagation();
 });

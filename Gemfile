@@ -5,7 +5,7 @@ ruby '3.2.9'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -25,20 +25,20 @@ gem 'jsbundling-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'rails-i18n', '~> 7.0'
+gem 'rails-i18n', '~> 8.0'
 gem 'devise-i18n'
 
 
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
-gem 'administrate', '~> 0.20.1' # 1.0 replaces the admin frontend (Turbo/Stimulus); upgrade separately
+gem 'administrate', '>= 1.0'
 gem 'autoprefixer-rails'
 gem 'babosa'
 gem 'carrierwave', '~> 2.0'
 gem 'carrierwave-i18n'
 gem 'css-class-string'
 gem 'mini_magick'
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0'
 gem 'friendly_id', '~> 5.4'
 gem 'font-awesome-sass', '~> 5.2'
 gem 'pagy', '~> 3.5'

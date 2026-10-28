@@ -7,6 +7,11 @@ class HikePolicy < ApplicationPolicy
     end
   end
 
+  # Administrate's index page (the public list is Pages#home, which skips Pundit)
+  def index?
+    user&.admin?
+  end
+
   def show?
     true
   end

@@ -4,8 +4,9 @@
 # Once everything below is enabled (or intentionally dropped), remove this file and set
 # config.load_defaults to 7.2 in config/application.rb.
 #
-# Enabled: safe for this app (no Active Job jobs enqueued in transactions, no manual date queries).
-Rails.application.config.active_job.enqueue_after_transaction_commit = :default
+# (active_job.enqueue_after_transaction_commit was removed from here: Rails 8.1 drops the global setting.)
+#
+# Enabled: safe for this app (no manual date queries).
 Rails.application.config.active_record.validate_migration_timestamps = true
 Rails.application.config.active_record.postgresql_adapter_decode_dates = true
 

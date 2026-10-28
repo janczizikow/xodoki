@@ -1,0 +1,20 @@
+// App-specific additions to Administrate's stylesheet (registered in config/initializers/administrate.rb).
+
+.field-unit--rich-text-area-field {
+  .field-unit__field {
+    width: 80%;
+  }
+}
+
+// reset ul and ol styles inside trix (collides with Administrate's reset)
+trix-editor ul {
+  list-style: inherit;
+}
+
+trix-editor ol {
+  list-style-type: decimal;
+}
+
+trix-editor {
+  min-height: 15rem;
+}

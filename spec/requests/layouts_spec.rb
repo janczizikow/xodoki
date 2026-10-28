@@ -19,12 +19,14 @@ RSpec.describe 'Layouts', type: :request do
     expect(response.body).to match(%r{/assets/filters-\h+\.js})
   end
 
-  it 'renders the admin layout with the administrate bundle' do
+  it 'renders the admin layout with the Administrate assets and the app stylesheet' do
     sign_in create(:user, :admin)
 
     get admin_root_path
 
     expect(response).to have_http_status(:ok)
-    expect(response.body).to match(%r{/assets/administrate-\h+\.js})
+    expect(response.body).to match(%r{/assets/administrate/application-\h+\.js})
+    expect(response.body).to match(%r{/assets/administrate/application-\h+\.css})
+    expect(response.body).to match(%r{/assets/admin-\h+\.css})
   end
 end

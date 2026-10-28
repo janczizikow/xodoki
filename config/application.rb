@@ -28,6 +28,10 @@ module Xodoki
     # Move to 7.1 once the 7.1 deploy is final and rollback is off the table.
     config.active_support.cache_format_version = 7.0
 
+    # `to_time` keeps the receiver's timezone (always on in Rails 8.1, so this line goes away there).
+    # Must be set here, not in an initializer: Active Support reads it before initializers run.
+    config.active_support.to_time_preserves_timezone = :zone
+
     # Locale settings
     config.i18n.default_locale = :ru
     config.i18n.available_locales = %i[en ru]

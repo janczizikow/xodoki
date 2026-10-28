@@ -5,11 +5,11 @@ ruby '3.2.9'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.1.0'
+gem 'rails', '~> 7.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Bundle JavaScript with esbuild (see esbuild.config.js). Read more: https://github.com/rails/jsbundling-rails
@@ -57,7 +57,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 6.1'
+  gem 'rspec-rails', '~> 7.0'
 end
 
 group :development do

@@ -4,18 +4,18 @@
 # Once everything below is enabled (or intentionally dropped), remove this file and set
 # config.load_defaults to 7.1 in config/application.rb.
 #
+# (allow_deprecated_parameters_hash_equality, allow_deprecated_singular_associations_name and
+# commit_transaction_on_non_local_return were removed from here: Rails 7.2 made them permanent.)
+#
 # Enabled: safe for this app (no serialize, attr_readonly, Active Record encryption,
 # transaction/return, has_secure_token or custom commit callbacks in use).
-Rails.application.config.action_controller.allow_deprecated_parameters_hash_equality = false
 Rails.application.config.active_record.run_commit_callbacks_on_first_saved_instances_in_transaction = false
-Rails.application.config.active_record.allow_deprecated_singular_associations_name = false
 Rails.application.config.active_support.raise_on_invalid_cache_expiration_time = true
 Rails.application.config.active_record.raise_on_assign_to_attr_readonly = true
 Rails.application.config.active_record.belongs_to_required_validates_foreign_key = false
 Rails.application.config.precompile_filter_parameters = true
 Rails.application.config.active_record.before_committed_on_all_records = true
 Rails.application.config.active_record.run_after_transaction_callbacks_in_order_defined = true
-Rails.application.config.active_record.commit_transaction_on_non_local_return = true
 Rails.application.config.active_record.generate_secure_token_on = :initialize
 Rails.application.config.active_record.default_column_serializer = nil
 Rails.application.config.action_dispatch.debug_exception_log_level = :error

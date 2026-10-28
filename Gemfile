@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.7'
+ruby '3.2.9'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.0.8'
-# concurrent-ruby 1.3.5+ no longer requires 'logger', which Rails < 7.1 relies on; remove with the 7.1 upgrade
-gem 'concurrent-ruby', '1.3.4'
+gem 'rails', '~> 7.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -33,14 +31,14 @@ gem 'devise-i18n'
 
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
-gem 'administrate'
+gem 'administrate', '~> 0.20.1' # 1.0 replaces the admin frontend (Turbo/Stimulus); upgrade separately
 gem 'autoprefixer-rails'
 gem 'babosa'
 gem 'carrierwave', '~> 2.0'
 gem 'carrierwave-i18n'
 gem 'css-class-string'
 gem 'mini_magick'
-gem 'devise'
+gem 'devise', '~> 4.9'
 gem 'friendly_id', '~> 5.4'
 gem 'font-awesome-sass', '~> 5.2'
 gem 'pagy', '~> 3.5'
@@ -48,7 +46,8 @@ gem 'pg_search'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'sentry-raven'
+gem 'sentry-ruby'
+gem 'sentry-rails'
 
 group :development, :test do
   gem 'capybara', '>= 3.26'
@@ -58,7 +57,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 6.0'
+  gem 'rspec-rails', '~> 6.1'
 end
 
 group :development do

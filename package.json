@@ -5,8 +5,8 @@
     "build": "node esbuild.config.js"
   },
   "dependencies": {
-    "@rails/actiontext": "^6.1.7",
-    "@rails/activestorage": "^6.1.7",
+    "@rails/actiontext": "^7.2.0",
+    "@rails/activestorage": "^7.2.0",
     "@rails/ujs": "^6.1.7",
     "bootstrap": "^4.3.1",
     "esbuild": "^0.25.0",

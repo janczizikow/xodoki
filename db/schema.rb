@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_10_24_030711) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_28_135429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -125,6 +125,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_10_24_030711) do
     t.datetime "updated_at", precision: nil, null: false
     t.boolean "in_header"
     t.boolean "in_footer"
+    t.index ["in_footer"], name: "index_pages_on_in_footer", where: "in_footer"
+    t.index ["in_header"], name: "index_pages_on_in_header", where: "in_header"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
     t.index ["title"], name: "index_pages_on_title", unique: true
   end

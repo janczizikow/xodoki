@@ -132,19 +132,26 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.25.12.tgz#9bdad8176be7811ad148d1f8772359041f46c6c5"
   integrity sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA==
 
-"@rails/actiontext@^6.1.7":
-  version "6.1.710"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.1.710.tgz#484abaaacc22369bb1b422b58b37dadcec2b1fe5"
-  integrity sha512-j1BhLadXPJ3g4cG/5xRKvdfofYeBdTK75MjBJSMHL3gCTpOqwvdPavDj7eZTnpzLo6/sfMAo0GbB1JK61JZYCg==
+"@rails/actiontext@^7.2.0":
+  version "7.2.400"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-7.2.400.tgz#a3f4d9fc24533c740ab1841d4bb72f8ad82dcd18"
+  integrity sha512-cBgp3Ac51uohWvR9sT3YHgE82A0ZVxDI7LJSODTa2WXc48RW5GIpNmoxFPopac3plUZ47Uc0X+h3fnJ2lNOnAA==
   dependencies:
-    "@rails/activestorage" "^6.0.0"
+    "@rails/activestorage" ">= 7.2.0-alpha"
 
-"@rails/activestorage@^6.0.0", "@rails/activestorage@^6.1.7":
-  version "6.1.710"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.1.710.tgz#bc914716f642ba233f033b7765a44dc3bfb626f5"
-  integrity sha512-hLXxAtn7hSWXkTzMGOmQmjuzJ0FzVw8j/Zi8DGS+DG9x4uPQjl+ZEVdty7pFcsBCjkpejtk0TChcBQlLW8sgOg==
+"@rails/activestorage@>= 7.2.0-alpha":
+  version "8.1.400"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.1.400.tgz#355c3b59e238f837ef422d148b361d9a96b28fe6"
+  integrity sha512-ScpkkHXTQ7QByvzLbnrnubpsWRKhlu08kXyRhSV+Hh1s1X43lv5T0PFLhXAvmqrIcq8nQ2up8iyuCmIzacPDDw==
   dependencies:
-    spark-md5 "^3.0.0"
+    spark-md5 "^3.0.1"
+
+"@rails/activestorage@^7.2.0":
+  version "7.2.400"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.2.400.tgz#be57885970c481ea8ca44fe5ba253631b7a1b605"
+  integrity sha512-8HbYJKgCUko+l9m87s4P+iUp5RDtfr59YtpPYqbvy5xpDW30YZ2aVD4DBpaVBoXhuV924TjOMK8MLKxKH6OlcQ==
+  dependencies:
+    spark-md5 "^3.0.1"
 
 "@rails/ujs@^6.1.7":
   version "6.1.710"
@@ -292,10 +299,10 @@ sifter@^0.5.1:
     humanize "^0.0.9"
     optimist "^0.6.1"
 
-spark-md5@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.0.tgz#3722227c54e2faf24b1dc6d933cc144e6f71bfef"
-  integrity sha1-NyIifFTi+vJLHcbZM8wUTm9xv+8=
+spark-md5@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
+  integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
 trix@^1.0.0:
   version "1.2.2"

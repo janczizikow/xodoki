@@ -285,6 +285,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    observer (0.1.2)
     orm_adapter (0.5.0)
     pagy (3.11.0)
     parallel (1.28.0)
@@ -514,7 +515,7 @@ DEPENDENCIES
   autoprefixer-rails
   aws-sdk-s3
   babosa
-  bootsnap (>= 1.4.4)
+  bootsnap
   capybara (>= 3.26)
   carrierwave (~> 2.0)
   carrierwave-i18n
@@ -533,12 +534,13 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.3)
   mini_magick
+  observer
   pagy (~> 3.5)
   pg (>= 0.18, < 2.0)
   pg_search
   pry-byebug
   pry-rails
-  puma (~> 6.4)
+  puma (>= 5.0)
   pundit
   pundit-matchers (~> 1.7.0)
   rack-mini-profiler (>= 3.3)
@@ -560,7 +562,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
 
 RUBY VERSION
-   ruby 3.2.9p265
+   ruby 3.4.7p58
 
 BUNDLED WITH
    2.4.22

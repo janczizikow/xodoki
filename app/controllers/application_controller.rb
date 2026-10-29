@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, unless: %i[devise_controller?]
   before_action :set_sentry_context
-  after_action :verify_authorized, except: %i[index dashboard], unless: :skip_pundit?
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def default_url_options
-    {host: ENV['HOST'] || 'localhost:3000'}
+    {host: ENV['HOST'] || request.host_with_port}
   end
 
   private

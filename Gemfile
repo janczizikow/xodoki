@@ -7,7 +7,7 @@ gem 'observer'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -27,7 +27,7 @@ gem 'jsbundling-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'rails-i18n', '~> 7.0'
+gem 'rails-i18n', '~> 8.0'
 gem 'devise-i18n'
 
 

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class KmlUploader < CarrierWave::Uploader::Base
-
   def extension_allowlist
     %w[kml kmz]
   end

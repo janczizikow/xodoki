@@ -2,6 +2,9 @@ CarrierWave.configure do |config|
   # https://stackoverflow.com/questions/56771315/need-to-implement-cache-if-you-want-to-use-cloudinarycarrierwavestorage-as#answer-57995718
   config.cache_storage = :file
 
+  # Store uploads on the local file system outside production (public/uploads), S3 in production.
+  config.storage = Rails.env.production? ? :fog : :file
+
   config.fog_credentials = {
     provider:              'AWS',                        # required
     aws_access_key_id:     ENV['AWS_ACCESS_KEY_ID'],     #

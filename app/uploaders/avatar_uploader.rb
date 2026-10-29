@@ -2,14 +2,13 @@
 
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  storage :fog
 
   version :default do
     process resize_to_fill: [160, 160]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
-  def extension_whitelist
+  def extension_allowlist
     %w[jpg jpeg gif png]
   end
 

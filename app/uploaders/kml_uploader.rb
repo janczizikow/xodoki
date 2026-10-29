@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 class KmlUploader < CarrierWave::Uploader::Base
-  storage :fog
-  # storage :file
 
-  def extension_whitelist
+  def extension_allowlist
     %w[kml kmz]
   end
 

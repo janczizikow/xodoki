@@ -2,6 +2,4 @@
 //= link_directory ../stylesheets .css
 //= link favicon/site.webmanifest
 //= link favicon/browserconfig.xml
-//= link administrate/application.css
-//= link administrate/application.js
 //= link_tree ../builds

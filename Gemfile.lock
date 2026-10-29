@@ -527,7 +527,7 @@ DEPENDENCIES
   mini_magick
   observer
   pagy (~> 3.5)
-  pg (>= 0.18, < 2.0)
+  pg
   pg_search
   pry-byebug
   pry-rails

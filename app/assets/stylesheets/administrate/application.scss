@@ -2,7 +2,6 @@
 
 @import "reset/normalize";
 
-@import "selectize";
 
 @import "library/clearfix";
 @import "library/data-label";
@@ -78,5 +77,3 @@ trix-editor ol {
 trix-editor {
   min-height: 15rem;
 }
-
-@import "flatpickr/dist/flatpickr.min";

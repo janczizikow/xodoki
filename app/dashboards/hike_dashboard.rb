@@ -10,19 +10,23 @@ class HikeDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo,
-    category: Field::BelongsTo,
-    direction: Field::BelongsTo,
-    photos: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
+    category: Field::BelongsTo,
+    date: Field::Date,
     description: Field::Text,
-    slug: Field::String,
-    date: Field::DateTime,
+    direction: Field::BelongsTo,
     distance: Field::Number,
+    favorites: Field::HasMany,
+    image: Field::String,
+    kml: Field::String,
+    kmls: Field::HasMany,
+    name: Field::String,
+    old_kml_url: Field::String,
+    photos: Field::HasMany,
+    slug: Field::String,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    kml: Field::String
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -75,7 +79,7 @@ class HikeDashboard < Administrate::BaseDashboard
   # in the search field:
   #
   #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { where(open: true) }
+  #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 

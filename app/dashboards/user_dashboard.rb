@@ -10,19 +10,19 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    hikes: Field::HasMany,
-    photos: Field::HasMany,
     id: Field::Number,
+    admin: Field::Boolean,
+    avatar: Field::String,
     email: Field::String,
     encrypted_password: Field::String,
-    password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
+    hikes: Field::HasMany,
+    photos: Field::HasMany,
     remember_created_at: Field::DateTime,
+    reset_password_sent_at: Field::DateTime,
+    reset_password_token: Field::String,
+    username: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    avatar: Field::String,
-    username: Field::String
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -68,7 +68,7 @@ class UserDashboard < Administrate::BaseDashboard
   # in the search field:
   #
   #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { where(open: true) }
+  #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 

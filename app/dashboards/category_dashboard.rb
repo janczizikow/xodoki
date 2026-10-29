@@ -10,8 +10,8 @@ class CategoryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    hikes: Field::HasMany,
     id: Field::Number,
+    hikes: Field::HasMany,
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -52,7 +52,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # in the search field:
   #
   #   COLLECTION_FILTERS = {
-  #     open: ->(resources) { where(open: true) }
+  #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 

@@ -33,7 +33,7 @@ gem 'devise-i18n'
 
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
-gem 'administrate', '~> 0.20.1' # 1.0 replaces the admin frontend (Turbo/Stimulus); upgrade separately
+gem 'administrate', '~> 1.0'
 gem 'autoprefixer-rails'
 gem 'babosa'
 gem 'carrierwave', '~> 2.0'

@@ -8,7 +8,7 @@ require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_mailbox/engine"
+# require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 # require "action_cable/engine"
@@ -22,11 +22,7 @@ Bundler.require(*Rails.groups)
 module Xodoki
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
-
-    # Cache entries are regenerable; 6.1 format is deprecated and removed in Rails 7.2.
-    # Move to 7.1 once the 7.1 deploy is final and rollback is off the table.
-    config.active_support.cache_format_version = 7.0
+    config.load_defaults 7.2
 
     # Locale settings
     config.i18n.default_locale = :ru

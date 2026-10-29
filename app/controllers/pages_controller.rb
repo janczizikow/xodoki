@@ -47,9 +47,10 @@ class PagesController < ApplicationController
   end
 
   def hikes
-    return Hike.upcoming if params[:upcoming].present?
-    return Hike.past if params[:past].present?
+    hikes = Hike.includes(:category)
+    return hikes.upcoming if params[:upcoming].present?
+    return hikes.past if params[:past].present?
 
-    Hike.where(nil).order(sort)
+    hikes.order(sort)
   end
 end

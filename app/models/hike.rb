@@ -30,6 +30,8 @@ class Hike < ApplicationRecord
 
   accepts_nested_attributes_for :kmls, allow_destroy: true
 
+  delegate :skiing?, to: :category
+
   def normalize_friendly_id(name)
     name.to_slug.transliterate(:russian).normalize.to_s
   end

@@ -3,8 +3,8 @@
     i class="far fa-calendar text-primary"
     span.mx-2 = hike.date
   div
-    - if should_show_custom_icon?(hike)
-      = image_tag "ski-icon.png", class: "card__icon"
+    - if hike.skiing?
+      i class="fas fa-skiing-nordic text-primary"
     - else
       i class="fas fa-hiking text-primary"
     span.mx-2 = "#{hike.distance} км"

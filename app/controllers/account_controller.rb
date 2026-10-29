@@ -12,7 +12,7 @@ class AccountController < ApplicationController
   end
 
   def hikes
-    @hikes = Hike.my(current_user)
+    @hikes = Hike.includes(:category).my(current_user)
     authorize @hikes
   end
 end

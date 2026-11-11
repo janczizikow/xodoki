@@ -1,4 +1,4 @@
-FROM ruby:3.4.7
+FROM ruby:3.4.12
 
 # ImageMagick for CarrierWave/MiniMagick, libpq for pg
 RUN apt-get update -qq \
@@ -12,6 +12,6 @@ RUN ARCH="$(dpkg --print-architecture | sed 's/amd64/x64/')" \
   && npm install -g yarn
 
 # Must match BUNDLED WITH in Gemfile.lock
-RUN gem install bundler -v 2.4.22
+RUN gem install bundler -v 2.6.9
 
 WORKDIR /app

@@ -10,5 +10,6 @@ footer.footer
           = "#{Time.zone.now.year} #{meta_product_name}. #{t('.all_rights_reserved')}."
       .footer__links
         nav
-          - Page.included_in_footer.each do |p|
-            = link_to p.title, "/#{p.slug}", class: 'footer__link'
+          - cache ['footer_links', Page.included_in_footer.maximum(:updated_at)] do
+            - Page.included_in_footer.each do |p|
+              = link_to p.title, "/#{p.slug}", class: 'footer__link mx-2'

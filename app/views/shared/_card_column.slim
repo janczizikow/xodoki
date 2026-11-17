@@ -6,9 +6,19 @@ div class="col-md-6 col-lg-4"
     - else
       svg class="card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="#{hike.name}"
         rect width="100%" height="100%" fill="#868e96"
+
     .card-body
       h5 class="card-title" = hike.name
       p class="card-subtitle mb-2 text-muted"
-        = render "shared/hike_icons", hike: hike
+        .d-flex.flex-wrap.align-items-center
+          div
+            i.far.fa-calendar.text-primary
+            span.mx-2 = hike.date
+          div.ms-2
+            - if hike.skiing?
+              i.fas.fa-skiing-nordic.text-primary
+            - else
+              i.fas.fa-hiking.text-primary
+            span.mx-2 = "#{hike.distance} км"
       p class="card-text"
         = truncate(hike.description, length: 100)

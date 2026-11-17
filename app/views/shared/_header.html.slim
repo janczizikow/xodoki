@@ -19,9 +19,10 @@ header.header.navbar.navbar-expand-md.navbar-light.fixed-top
         = link_to t('.hikes'), root_path, class: "nav-link"
       li.nav-item
         = link_to t('.hikers'), users_path, class: "nav-link"
-      - Page.included_in_header.each do |p|
-        li.nav-item
-          = link_to p.title, "/#{p.slug}", class: "nav-link"
+      - cache ['header_links', Page.included_in_header.maximum(:updated_at)] do
+        - Page.included_in_header.each do |p|
+          li.nav-item
+            = link_to p.title, "/#{p.slug}", class: "nav-link"
       - if user_signed_in?
         li.nav-item
           = link_to t('.favorites'), favorites_path, class: "nav-link"

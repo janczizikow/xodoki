@@ -1,5 +1,5 @@
 = link_to hike_path(hike), class: "card mb-4 shadow-sm" do
-  - if hike.image_identifier.present?
+  - if hike.image?
     figure.card__img.card-img-top
       img class="lazyload" alt="#{hike.name}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="#{hike.image.thumb.url}"
   - else

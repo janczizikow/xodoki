@@ -35,4 +35,6 @@ class Hike < ApplicationRecord
   def normalize_friendly_id(name)
     name.to_slug.transliterate(:russian).normalize.to_s
   end
+
+  def image? = image_identifier.present?
 end

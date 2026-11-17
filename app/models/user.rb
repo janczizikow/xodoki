@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :hikes, dependent: :destroy
   has_many :photos, dependent: :destroy
 
+  def avatar? = avatar_identifier.present?
+
   private
 
   def send_welcome_email

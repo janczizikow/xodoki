@@ -1,6 +1,6 @@
 div class="col-sm-6 col-md-4"
   .mt-4.text-center
-    - if user.avatar.present?
+    - if user.avatar?
       = image_tag user.avatar.url(:default), class: "mb-2 rounded-circle", size: "80x80"
     - else
       i class="fas fa-user-circle fa-5x text-muted"

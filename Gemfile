@@ -46,6 +46,9 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 
 group :development, :test do
+  # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
+  gem "bundler-audit", require: false
+  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
   gem 'capybara', '>= 3.26'
   gem 'dotenv-rails'
@@ -58,7 +61,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
+  gem 'web-console'
   gem 'rack-mini-profiler', '>= 3.3'
   gem 'listen', '~> 3.3'
   gem 'letter_opener'

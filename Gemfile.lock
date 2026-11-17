@@ -113,6 +113,9 @@ GEM
     brakeman (8.1.0)
       racc
     builder (3.3.0)
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
+      thor (~> 1.0)
     byebug (13.0.0)
       reline (>= 0.6.0)
     capybara (3.36.0)
@@ -487,6 +490,7 @@ DEPENDENCIES
   babosa
   bootsnap
   brakeman
+  bundler-audit
   capybara (>= 3.26)
   carrierwave (~> 3.1)
   carrierwave-i18n
@@ -526,7 +530,7 @@ DEPENDENCIES
   simplecov
   slim-rails
   tzinfo-data
-  web-console (>= 4.1.0)
+  web-console
 
 RUBY VERSION
    ruby 3.4.12p148

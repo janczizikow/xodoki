@@ -1,4 +1,4 @@
-FROM ruby:3.4.12
+FROM ruby:4.0.9
 
 # ImageMagick for CarrierWave/MiniMagick, libpq for pg
 RUN apt-get update -qq \

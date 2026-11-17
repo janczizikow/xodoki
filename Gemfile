@@ -12,8 +12,8 @@ gem 'rails', '~> 8.1.0'
 gem 'pg'
 # Use Puma as the app server
 gem "puma", ">= 5.0"
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+# https://github.com/rails/cssbundling-rails
+gem "cssbundling-rails", "~> 1.4"
 # Bundle JavaScript with esbuild (see esbuild.config.js). Read more: https://github.com/rails/jsbundling-rails
 gem 'jsbundling-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -34,7 +34,6 @@ gem 'devise-i18n'
 gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
 gem 'administrate', '~> 1.0'
-gem 'autoprefixer-rails'
 gem 'babosa'
 gem 'carrierwave', '~> 3.1'
 gem 'carrierwave-i18n'
@@ -42,9 +41,9 @@ gem 'css-class-string'
 gem 'mini_magick'
 gem 'devise', '~> 4.9'
 gem 'friendly_id', '~> 5.4'
-gem 'font-awesome-sass', '~> 5.2'
 gem 'pagy', '~> 3.5'
 gem 'pg_search'
+gem 'propshaft'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
@@ -66,7 +65,6 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '>= 3.3'
   gem 'listen', '~> 3.3'
-  gem 'rails_real_favicon'
   gem 'letter_opener'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false

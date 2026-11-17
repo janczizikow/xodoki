@@ -1,11 +1,12 @@
+@use "@fortawesome/fontawesome-free/scss/fontawesome";
+
 @import "abstracts/variables";
 @import "abstracts/boostrap_override";
 @import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "trix/dist/trix";
 
 @import "base/base";
+@import "base/fonts";
 @import "base/helpers";
 
 @import "components/header";

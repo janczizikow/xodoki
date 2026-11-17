@@ -1,14 +1,14 @@
 {
-    "name": "\u0425\u043e\u0434\u043a\u0438",
-    "short_name": "\u0425\u043e\u0434\u043a\u0438",
+    "name": "Ходоки",
+    "short_name": "Ходоки",
     "icons": [
         {
-            "src": "<%= asset_path 'favicon/android-chrome-192x192.png' %>",
+            "src": "/assets/favicon/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "<%= asset_path 'favicon/android-chrome-256x256.png' %>",
+            "src": "/assets/favicon/android-chrome-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         }

@@ -7,9 +7,9 @@ gem 'rails', '~> 8.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem "puma", ">= 5.0"
+gem 'puma', '>= 7.2.2'
 # https://github.com/rails/cssbundling-rails
-gem "cssbundling-rails", "~> 1.4"
+gem 'cssbundling-rails', '~> 1.4'
 # Bundle JavaScript with esbuild (see esbuild.config.js). Read more: https://github.com/rails/jsbundling-rails
 gem 'jsbundling-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -21,7 +21,7 @@ gem 'jsbundling-rails'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem 'bootsnap', require: false
 
 gem 'rails-i18n', '~> 8.0'
 gem 'devise-i18n'
@@ -47,7 +47,7 @@ gem 'sentry-rails'
 
 group :development, :test do
   # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
-  gem "bundler-audit", require: false
+  gem 'bundler-audit', require: false
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
   gem 'capybara', '>= 3.26'

@@ -13,7 +13,7 @@ class PageDashboard < Administrate::BaseDashboard
     id: Field::Number,
     title: Field::String,
     slug: Field::String,
-    content: RichTextAreaField,
+    content: Field::RichText,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     in_header: Field::Boolean,

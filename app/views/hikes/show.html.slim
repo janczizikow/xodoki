@@ -25,10 +25,10 @@ section class="my-5"
               ul id="nav-tab" class="nav nav-tabs" role="tablist"
                 - @hike.kmls.each.with_index do |kml, index|
                   li class="nav-item"
-                    a class="#{class_string('nav-link', active: index.zero?)}" id="map#{kml.id}-tab" href="#map#{kml.id}" data-toggle="tab" role="tab" aria-selected="#{index.zero?}" = kml.name
+                    a class="#{class_names('nav-link', active: index.zero?)}" id="map#{kml.id}-tab" href="#map#{kml.id}" data-toggle="tab" role="tab" aria-selected="#{index.zero?}" = kml.name
               div class="tab-content"
                 - @hike.kmls.each.with_index do |kml, index|
-                  div class="#{class_string('tab-pane', 'active show': index.zero?)}" id="map#{kml.id}" role="tabpanel"
+                  div class="#{class_names('tab-pane', 'active show': index.zero?)}" id="map#{kml.id}" role="tabpanel"
                     div class="js-map" style="width: 100%; height: 450px;" data-kml="#{kml.file.url}"
       .col-lg-3
         = render "shared/hike_photos", hike: @hike

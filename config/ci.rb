@@ -5,7 +5,9 @@ CI.run do
 
   step "Style: Ruby", "bin/rubocop"
 
-  step "Security: Importmap vulnerability audit", "bin/importmap audit"
+  step "Security: vulnerability audit (ruby)", "bin/bundler-audit"
+
+  step "Security: vulnerability audit (js)", "yarn audit"
 
 
   # Optional: set a green GitHub commit status to unblock PR merge.

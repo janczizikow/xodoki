@@ -220,10 +220,10 @@
     "@parcel/watcher-win32-arm64" "2.6.0"
     "@parcel/watcher-win32-x64" "2.6.0"
 
-"@rails/activestorage@^7.2.0":
-  version "7.2.400"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.2.400.tgz#be57885970c481ea8ca44fe5ba253631b7a1b605"
-  integrity sha512-8HbYJKgCUko+l9m87s4P+iUp5RDtfr59YtpPYqbvy5xpDW30YZ2aVD4DBpaVBoXhuV924TjOMK8MLKxKH6OlcQ==
+"@rails/activestorage@^8.1.401":
+  version "8.1.401"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.1.401.tgz#80b6d3886fb1dffcc2a3ce64760b91c7a51631fc"
+  integrity sha512-PjUMgsCbXrKAhZj6mjvx5U7B/Nmtofe/drucyu8twMlLJkG+Ke1iLQGr8FDl2dOfJ+T5fUEXUpJQUbPZjSzkQw==
   dependencies:
     spark-md5 "^3.0.1"
 
@@ -335,10 +335,10 @@ picomatch@^4.0.4:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.7.tgz#6313360034ccb36b3dc61ecbdff78121f90fe21f"
   integrity sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==
 
-popper.js@^1.14.4:
-  version "1.14.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
-  integrity sha1-juwdj/AqWjoVLdQ0FKFce3n9abY=
+popper.js@^1.14.7:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 readdirp@^5.0.0:
   version "5.1.1"

@@ -52,7 +52,7 @@ class HikesController < ApplicationController
   private
 
   def set_hike
-    @hike = Hike.friendly.find(params[:id])
+    @hike = Hike.includes(:kmls).friendly.find(params[:id])
     authorize @hike
   end
 

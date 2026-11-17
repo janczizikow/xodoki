@@ -5,6 +5,4 @@
     .page
       p = t('.intro')
       .row
-        - @users.each do |user|
-          div class="col-sm-6 col-md-4"
-            = render "shared/user", user: user
+        = render partial: "shared/user", collection: @users, as: :user

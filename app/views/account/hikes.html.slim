@@ -1,3 +1,2 @@
 = render "shared/account_layout"
-  - @hikes.each do |hike|
-    = render "shared/card", hike: hike
+  = render partial: "shared/card", collection: @hikes, as: :hike

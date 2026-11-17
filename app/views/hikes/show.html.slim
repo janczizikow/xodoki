@@ -17,8 +17,7 @@ section class="my-5"
               = render "shared/hike_icons", hike: @hike
               = render "shared/hike_meta", hike: @hike
               div.d-flex.mt-3
-                - @hike.kmls.each do |kml|
-                  = render "shared/download_kml_link", kml: kml
+                = render partial: "shared/download_kml_link", collection: @hike.kmls, as: :kml
               = render "shared/edit_icons"
             p.mt-3.text-spacing = @hike.description
             - unless @hike.kmls.empty?

@@ -4,11 +4,9 @@
   = render "shared/sort"
   / = render "shared/filters"
   .container.mt-4
-    - if @hikes.length > 0
+    - if @hikes.any?
       .row
-        - @hikes.each do |hike|
-          div class="col-md-6 col-lg-4"
-            = render "shared/card", hike: hike
+        = render partial: "shared/card_column", collection: @hikes, as: :hike
       - if @pagy.pages > 1
         == pagy_bootstrap_nav(@pagy).html_safe
     - else

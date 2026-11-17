@@ -1,5 +1,0 @@
----
-development:
-  secure: true
-production:
-  secure: true

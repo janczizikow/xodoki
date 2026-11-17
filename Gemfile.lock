@@ -110,6 +110,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.24.6)
       msgpack (~> 1.2)
+    brakeman (8.1.0)
+      racc
     builder (3.3.0)
     byebug (13.0.0)
       reline (>= 0.6.0)
@@ -134,7 +136,6 @@ GEM
     concurrent-ruby (1.3.8)
     connection_pool (3.0.3)
     crass (1.0.8)
-    css-class-string (0.1.1)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
     date (3.6.0)
@@ -158,11 +159,11 @@ GEM
     erubi (1.13.1)
     excon (1.5.0)
       logger
-    factory_bot (6.2.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
-      railties (>= 5.0.0)
+    factory_bot (6.6.0)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.1)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.17.4)
@@ -277,7 +278,6 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    observer (0.1.2)
     orm_adapter (0.5.0)
     pagy (3.11.0)
     parallel (1.28.0)
@@ -486,25 +486,23 @@ DEPENDENCIES
   aws-sdk-s3
   babosa
   bootsnap
+  brakeman
   capybara (>= 3.26)
   carrierwave (~> 3.1)
   carrierwave-i18n
-  css-class-string
   cssbundling-rails (~> 1.4)
   devise (~> 5.0)
   devise-i18n
   dotenv-rails
-  factory_bot_rails
+  factory_bot_rails (~> 6.4)
   faker
   fog-aws
   friendly_id (~> 5.4)
-  guard
   guard-rspec
   jsbundling-rails
   letter_opener
   listen (~> 3.3)
   mini_magick
-  observer
   pagy (~> 3.5)
   pg
   pg_search

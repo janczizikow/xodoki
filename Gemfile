@@ -1,10 +1,6 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.4.12'
-
-gem 'observer'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 8.1.0'
@@ -37,7 +33,6 @@ gem 'administrate', '~> 1.0'
 gem 'babosa'
 gem 'carrierwave', '~> 3.1'
 gem 'carrierwave-i18n'
-gem 'css-class-string'
 gem 'mini_magick'
 gem 'devise', '~> 5.0'
 gem 'friendly_id', '~> 5.4'
@@ -51,9 +46,10 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'capybara', '>= 3.26'
   gem 'dotenv-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 6.4'
   gem 'faker'
   gem 'guard-rspec'
   gem 'pry-rails'
@@ -71,7 +67,6 @@ group :development do
 end
 
 group :test do
-  gem 'guard'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'pundit-matchers', '~> 1.7.0'

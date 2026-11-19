@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def home
     scope = hikes
-    scope = scope.search(params[:search]).distinct if params[:search].present?
+    scope = scope.search(params[:search]) if params[:search].present?
     @pagy, @hikes = paginate(scope)
   end
 
